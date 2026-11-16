@@ -1,107 +1,94 @@
 # Troubleshooting
 
-Practical checks for the [FreeMoCap → Mixamo → Blender guide](../README.md). Begin with the section matching your problem, then check the official documentation for the versions you installed. User interfaces and export features may change between releases.
+Start with the exact error shown by the app or command. Note Windows, FreeMoCap, Blender, and FFmpeg versions, and keep an unchanged copy of source videos and the FreeMoCap recording folder. Interface labels, output data, and supported exports change between releases; use the documentation matching your installed version.
 
-## Table of contents
+- [FFmpeg cannot be found or convert a video](#ffmpeg-cannot-find-or-convert-a-video)
+- [FreeMoCap cannot import video](#freemocap-cannot-import-video)
+- [Calibration fails](#calibration-fails)
+- [Tracking quality is poor](#tracking-quality-is-poor)
+- [Processing output looks different](#processing-output-looks-different)
+- [Blender export or import fails](#blender-export-or-import-fails)
+- [Retargeting fails](#retargeting-fails)
 
-- [FFmpeg is not recognized](#ffmpeg-is-not-recognized)
-- [FFmpeg cannot open the input file](#ffmpeg-cannot-open-the-input-file)
-- [Converted video has no audio or looks different](#converted-video-has-no-audio-or-looks-different)
-- [FreeMoCap cannot import a video](#freemocap-cannot-import-a-video)
-- [Calibration or tracking is poor](#calibration-or-tracking-is-poor)
-- [Processing is slow or stops](#processing-is-slow-or-stops)
-- [No Blender-compatible export is available](#no-blender-compatible-export-is-available)
-- [Blender retargeting looks wrong](#blender-retargeting-looks-wrong)
-- [Still stuck?](#still-stuck)
+## FFmpeg cannot find or convert a video
 
-## FFmpeg is not recognized
+In Command Prompt, check that Windows can find FFmpeg:
 
-1. Close and reopen PowerShell or Windows Terminal after installing or editing PATH.
-2. Check whether Windows can find FFmpeg:
-
-```powershell
-where.exe ffmpeg
-```
-
-3. If no path is printed, edit the **User Path** environment variable and add the `bin` directory containing `ffmpeg.exe` (for example, `C:\ffmpeg\bin`). Do not add the executable filename itself.
-4. Open a fresh terminal and verify:
-
-```powershell
+```bat
+where ffmpeg
 ffmpeg -version
 ```
 
-Avoid replacing the whole PATH value. Preserve existing entries. See the guide's [PATH instructions](../README.md#2-add-ffmpeg-to-path).
+If `where` finds nothing, confirm FFmpeg is extracted and the PATH entry points to the directory containing `ffmpeg.exe` (for example, `C:\ffmpeg\bin`). Close and reopen Command Prompt after changing PATH. If needed, use **Edit the system environment variables → Environment Variables → Path** to add the folder.
 
-## FFmpeg cannot open the input file
+Use quoted, full paths when folders or filenames contain spaces:
 
-- Confirm the input file exists and the path is spelled correctly.
-- Put paths in double quotes, especially when they contain spaces:
-
-```powershell
-ffmpeg -i "C:\Videos\My clip.3gp" -c:v libx264 -pix_fmt yuv420p -c:a aac "C:\Videos\My clip.mp4"
+```bat
+ffmpeg -i "C:\Users\YourName\Downloads\Your-File-Name.3gp" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac "C:\Users\YourName\Downloads\Your-File-Name_FreeMoCap.mp4"
 ```
 
-- Make sure the output folder exists and you have permission to write there.
-- Read the first error reported by FFmpeg; it often identifies a missing file, unsupported codec, or damaged input.
+Replace `YourName` and the filenames with the actual locations. This creates a converted copy; keep the original. If the original is supported by FreeMoCap, conversion may not be needed. Re-encoding cannot restore details missing from a low-resolution or heavily compressed source. If the file contains no audio, an audio-stream warning may be harmless for a video-only task.
 
-## Converted video has no audio or looks different
+Download Windows builds through a provider linked by the [official FFmpeg download page](https://ffmpeg.org/download.html); Windows builds are third-party packages.
 
-Some 3GP clips do not contain audio. If FFmpeg reports no audio stream, use `-an` to create a video-only MP4:
+## FreeMoCap cannot import video
 
-```powershell
-ffmpeg -i "C:\Videos\walk.3gp" -c:v libx264 -pix_fmt yuv420p -an "C:\Videos\walk.mp4"
-```
+- Verify the video opens in a media player and finished transferring from the phone.
+- Use the original recording if the installed FreeMoCap version accepts it. Otherwise, convert a copy to MP4 using the command above.
+- Follow the app's documented existing-video workflow. A **Playback → Import Videos** path or button may exist in a particular version, but is not guaranteed in every release.
+- Confirm you selected the video (or session folder) expected by the app, and check its session list and full error output.
+- For multi-camera work, use the correct synchronized session files and matching calibration. A single iPhone video is not automatically synchronized with other independently recorded clips.
 
-Re-encoding can change file size and image quality. Keep the original and inspect the converted clip before deleting or moving anything. FFmpeg conversion does not restore detail that was absent in the source.
+See the [official FreeMoCap documentation](https://freemocap.github.io/documentation/index_md.html) for the UI corresponding to your version.
 
-## FreeMoCap cannot import a video
+## Calibration fails
 
-- Confirm the clip plays in a normal media player on the same computer.
-- Confirm FreeMoCap supports the file/container and codec combination for your release. An `.mp4` extension alone does not guarantee codec compatibility.
-- If appropriate, make a conversion copy with FFmpeg using the [conversion steps](../README.md#3-convert-3gp-to-mp4).
-- Move a test copy to a local folder with a short, simple path and check file permissions.
-- Reopen the session and follow the import procedure in the official documentation for your installed version.
-- If the app shows an error, save the exact message and your FreeMoCap version when asking for help.
+1. Check that the selected ChArUco layout and square/marker dimensions match the actual printed board.
+2. Keep the board flat and rigid. Ensure it is clear and large enough in each camera view.
+3. Keep cameras fixed after calibration and follow the current in-app prompts for moving and tilting the board.
+4. Ground-plane calibration has additional requirements in some versions, including an initial period with the board flat, stationary, and visible to every camera. Follow the current [FreeMoCap calibration documentation](https://freemocap.github.io/documentation/index_md.html).
+5. Do not assume example dimensions (such as 7 × 5 with 58 mm squares) are universal or choose a board merely because it looks similar.
+6. A single-camera test may not need multi-camera calibration; check the chosen recording workflow.
 
-## Calibration or tracking is poor
+If the app reports calibration failure or falls back to a default coordinate frame, save the full message and check the recording before relying on the result.
 
-- Follow the current FreeMoCap calibration procedure; confirm the target is printed at the required size, fully visible, and not blurred or obscured.
-- Improve lighting and avoid glare, flicker, deep shadows, and backlighting.
-- Stabilize the phone and frame the full body, leaving space around hands and feet.
-- Avoid loose clothing or backgrounds that hide the subject. Keep the action within the calibrated capture area.
-- Test with a short, simple motion before recording a long performance.
-- Review the 2D detections and calibration results, if provided by your FreeMoCap release, before interpreting the 3D output.
+## Tracking quality is poor
 
-## Processing is slow or stops
+- Prefer the original iPhone recording. Aim for 1080p or higher and 30–60 FPS when practical, with enough storage.
+- Avoid heavy compression, very low resolution (for example 176 × 144), and low frame rates (for example 10 FPS). Converting does not restore lost detail.
+- Use steady framing, even lighting, and a clean background; keep the entire body in frame and minimize motion blur and occlusion.
+- Try a short, simple motion first.
+- For multi-camera reconstruction, check that all views cover the capture volume and cameras did not move after calibration.
 
-- Processing time depends on video duration, resolution, camera count, hardware, and selected processing method.
-- Confirm the computer has adequate free disk space and is not sleeping during the run.
-- Try a short clip first. If that works, process the original in shorter segments only if the documented workflow supports it.
-- Close unnecessary applications, and review the app's logs or error output for the first reported failure.
-- Do not repeatedly launch processing against the same session if it may still be running.
+A distance of about 8–15 feet can be a starting point, not a fixed requirement; adjust for the space and ensure the person occupies enough of the frame.
 
-## No Blender-compatible export is available
+## Processing output looks different
 
-Export capabilities may depend on the FreeMoCap version and tracking backend. Check the official docs for the exact release and confirm which output formats are supported by the selected processing route. Do not rename a data file to a different extension and assume it has been converted. If there is no documented compatible route, report the FreeMoCap version, tracking mode, and available export choices to the project maintainers.
+Output filenames and detectors vary by FreeMoCap version. Files such as `rtmpose_body_3d_xyz.npy`, `rtmpose_skeleton_3d.npy`, `rtmpose_left_hand_3d_xyz.npy`, `rtmpose_right_hand_3d_xyz.npy`, or `rtmpose_face_3d_xyz.npy` are examples from a reported workflow, not a required file set. Check the recording's output folder and the detector's documentation rather than treating a filename difference as a failure.
 
-## Blender retargeting looks wrong
+Likewise, button labels such as **Continue to Mocap Setup**, **Process Recording**, **Run Pipeline**, **Start Processing**, **Aggregation Complete**, or **100%** can differ across versions. Follow the visible workflow and wait for its completion status.
 
-- Verify that the imported motion is animated before attempting retargeting.
-- Check the source and target units, scale, up-axis, and forward direction against the export/import documentation.
-- Confirm that the selected target is a deform rig and the retarget tool supports that rig and Blender version.
-- Review the source and target rest poses; a mismatch can cause twisted limbs or offsets.
-- Inspect bone mapping, particularly hips/root, spine, shoulders, hands, and feet. Names and hierarchies are not universal.
-- Test on a short frame range and inspect from front and side views. Check foot contact and root movement before baking the full animation.
-- Save a copy before applying transforms, baking animation, or changing the rig.
+## Blender export or import fails
+
+- Confirm Blender is installed and detected, and that your FreeMoCap version supports that Blender version.
+- Check whether the detector used for processing is supported by the export. Upstream's current integrated exporter has documented MediaPipe-only output support; version behavior can change.
+- Exported formats vary. Do not assume every release creates `.blend`, `.fbx`, or `.bvh`; check what the installed workflow actually produced.
+- Open the `.blend` output directly if one was created. For BVH/FBX, use Blender's import menu for that file format and Blender version.
+- If the scene opens without visible motion, inspect the timeline range, armature/skeleton, selected action, and output path.
+- Save the complete FreeMoCap error and recording folder before retrying.
+
+A raw skeleton data file is not necessarily a Blender scene or an animation ready for a Mixamo rig.
+
+## Retargeting fails
+
+- First verify that the source motion plays correctly in Blender.
+- Confirm the character has the expected armature and that the chosen retargeting tool supports the source skeleton, target rig, and installed Blender version.
+- Check bone mapping, rest/reference pose, forward/up axes, scale, and root motion.
+- Rokoko Studio Live Blender Add-on is one possible retargeting option to investigate, not a guaranteed compatible choice. Check its current documentation and compatibility before installation.
+- Inspect the whole animation for foot sliding, twisted limbs, root drift, and unexpected frame ranges. Bake/save the action using the chosen tool's documented steps.
 
 ## Still stuck?
 
-When opening an issue, include:
+Include a short reproduction, the exact error, and your Windows, FreeMoCap, Blender, and FFmpeg versions. Share only recordings you have permission to share; remove personal details from screenshots and logs.
 
-- Windows version and FreeMoCap, Blender, and FFmpeg versions.
-- The exact step that fails and a concise copy of the error text.
-- Input video format and codec, without sharing private footage.
-- The export format and retargeting tool, if the problem occurs in Blender.
-- A screenshot with personal or sensitive information removed.
-
-Return to the [main workflow guide](../README.md#troubleshooting).
+[Back to the main guide](../README.md) · [Return to its troubleshooting section](../README.md#troubleshooting)
