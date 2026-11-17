@@ -10,6 +10,7 @@
     { id: "freemocap-processing", title: "FreeMoCap processing", href: "docs/freemocap-processing.html", description: "Import footage, run tracking, and review outputs.", number: "05", group: "CAPTURE & PROCESS" },
     { id: "blender-export", title: "Blender export", href: "docs/blender-export.html", description: "Create and inspect supported Blender motion data.", number: "06", group: "BLENDER & RETARGETING" },
     { id: "mixamo-retargeting", title: "Mixamo retargeting", href: "docs/mixamo-retargeting.html", description: "Map motion onto a Mixamo-rigged character.", number: "07", group: "BLENDER & RETARGETING" },
+    { id: "changelog", title: "Changelog", href: "docs/changelog.html", description: "See recent improvements to this community guide.", number: "↗", group: "HELP" },
     { id: "troubleshooting", title: "Troubleshooting", href: "docs/troubleshooting.html", description: "Resolve common setup, capture, and export issues.", number: "?", group: "HELP" }
   ];
 
@@ -18,6 +19,47 @@
   const prefix = inDocs ? "../" : "";
   const currentId = document.body.dataset.page || (inDocs ? pathname.split("/").pop().replace(/\.html$/, "") : "home");
   const absoluteHref = (href) => prefix + href;
+
+  const themeKey = "freemocap-workflow-theme-v1";
+  let theme = "dark";
+  try {
+    theme = window.localStorage.getItem(themeKey) === "light" ? "light" : "dark";
+  } catch (error) {
+    // The theme toggle remains available for this visit when storage is disabled.
+  }
+  document.documentElement.dataset.theme = theme;
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  if (themeColor) themeColor.content = theme === "light" ? "#f5f8fc" : "#080d14";
+  const topbar = document.querySelector(".topbar");
+  if (topbar) {
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "icon-button theme-toggle";
+    themeToggle.type = "button";
+    themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+    const updateThemeToggle = () => {
+      const isLight = theme === "light";
+      themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+      themeToggle.title = isLight ? "Switch to dark theme" : "Switch to light theme";
+      themeToggle.innerHTML = isLight
+        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.3 8.3 0 0 1 8.6 3.8 8.4 8.4 0 1 0 20.2 15.4Z"/></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>';
+    };
+    updateThemeToggle();
+    themeToggle.addEventListener("click", () => {
+      theme = theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = theme;
+      if (themeColor) themeColor.content = theme === "light" ? "#f5f8fc" : "#080d14";
+      themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+      updateThemeToggle();
+      try {
+        window.localStorage.setItem(themeKey, theme);
+      } catch (error) {
+        // Keep the selected theme for this visit when storage is disabled.
+      }
+    });
+    const githubLink = topbar.querySelector(".topbar-github");
+    topbar.insertBefore(themeToggle, githubLink);
+  }
 
   document.querySelectorAll("[data-sidebar-nav]").forEach((nav) => {
     let lastGroup = "";
@@ -45,8 +87,17 @@
   });
 
   const menuToggle = document.querySelector("[data-menu-toggle]");
+  const sidebar = document.querySelector("#site-sidebar");
+  const mobileNavigation = window.matchMedia("(max-width: 850px)");
+  const syncMobileNavigation = () => {
+    if (!sidebar) return;
+    const closedOnMobile = mobileNavigation.matches && !document.body.classList.contains("nav-open");
+    sidebar.inert = closedOnMobile;
+    sidebar.setAttribute("aria-hidden", String(closedOnMobile));
+  };
   const closeMenu = () => {
     document.body.classList.remove("nav-open");
+    syncMobileNavigation();
     if (menuToggle) {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation menu");
@@ -55,15 +106,27 @@
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
       const isOpen = document.body.classList.toggle("nav-open");
+      syncMobileNavigation();
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
       if (isOpen) document.querySelector(".sidebar .nav-link")?.focus();
     });
   }
+  syncMobileNavigation();
+  mobileNavigation.addEventListener("change", () => {
+    if (!mobileNavigation.matches) closeMenu();
+    else syncMobileNavigation();
+  });
   document.querySelectorAll("[data-menu-close], .sidebar-nav a").forEach((element) => element.addEventListener("click", closeMenu));
 
   const searchInput = document.querySelector("#site-search");
   const searchResults = document.querySelector("#search-results");
+  const narrowScreen = window.matchMedia("(max-width: 380px)");
+  const updateSearchPlaceholder = () => {
+    if (searchInput) searchInput.placeholder = narrowScreen.matches ? "Search…" : "Search the guide…";
+  };
+  updateSearchPlaceholder();
+  narrowScreen.addEventListener("change", updateSearchPlaceholder);
   let selectedResult = -1;
   const closeSearch = () => {
     if (!searchResults || !searchInput) return;
