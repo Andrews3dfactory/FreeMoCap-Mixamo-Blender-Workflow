@@ -2,6 +2,8 @@
 
 A beginner-friendly Windows workflow for preparing iPhone video, using FFmpeg when needed, recording and processing motion capture with [FreeMoCap](https://github.com/freemocap/freemocap), and bringing motion into Blender for retargeting to a Mixamo-rigged character.
 
+**[Open the documentation website](https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/)** for the interactive guide.
+
 > **Use original footage whenever possible.** Avoid heavily compressed copies. As a practical target, record at 1080p or higher and 30–60 FPS when your iPhone and storage allow it. Better source footage helps, but does not guarantee accurate tracking.
 >
 > **Version note:** FreeMoCap's interface, supported detectors, filenames, export formats, and Blender integration change over time. UI labels and output examples below are examples reported for this workflow, not guarantees. Follow the documentation and controls for the version you installed. This community guide is not affiliated with FreeMoCap, Apple, FFmpeg, Blender, Adobe Mixamo, or Rokoko.

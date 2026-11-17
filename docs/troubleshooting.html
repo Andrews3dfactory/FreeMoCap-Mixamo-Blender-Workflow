@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Troubleshoot FFmpeg setup, FreeMoCap import and calibration, motion tracking, Blender export, and Mixamo retargeting.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Troubleshooting · FreeMoCap Motion Workflow"><meta property="og:description" content="Troubleshoot FFmpeg setup, FreeMoCap import and calibration, motion tracking, Blender export, and Mixamo retargeting.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/troubleshooting.html">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/troubleshooting.html">
+  <title>Troubleshooting · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css"><script src="../assets/js/site.js" defer></script>
+</head>
+<body data-page="troubleshooting">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Help</span><span>/</span><span>Troubleshooting</span></div>
+      <div class="doc-label">HELP / COMMON FIXES</div><h1 class="doc-title">Troubleshooting</h1>
+      <p class="doc-description">Start with the exact error and the step where it occurred. Keep original video and session data safe while investigating.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>Windows</span><span>·</span><span>Version-aware checks</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note"><p>FreeMoCap, Blender, and FFmpeg interfaces and supported formats change. Check the official docs for your installed release and include software versions when seeking help.</p></div>
+        <h2 id="ffmpeg">FFmpeg not found</h2>
+        <details open><summary>Check that FFmpeg is on PATH</summary><div><p>Open a new Command Prompt and run:</p><pre><code>where ffmpeg
+ffmpeg -version</code></pre><p>If no executable is found, make sure PATH contains the folder with <code>ffmpeg.exe</code> (commonly <code>C:\ffmpeg\bin</code>), then close and reopen the terminal. See <a href="ffmpeg-setup.html#path">FFmpeg setup</a>.</p></div></details>
+        <h2 id="import">Video import failure</h2>
+        <details><summary>FreeMoCap will not load the video</summary><div><ul><li>Check that the transfer completed and the clip plays in a local media player.</li><li>Use the original iPhone video if your FreeMoCap version supports the container and codec. Otherwise, convert a copy to H.264 MP4 with the <a href="video-conversion.html">conversion guide</a>.</li><li>Keep the original file and choose the documented existing-video workflow for your version; UI labels can differ.</li><li>For multi-camera reconstruction, check that source files belong to one synchronized recording and use matching calibration.</li></ul></div></details>
+        <h2 id="calibration">Calibration issues</h2>
+        <details><summary>Calibration reports failure or poor results</summary><div><ul><li>Confirm the printed ChArUco layout and dimensions match the configuration selected in FreeMoCap.</li><li>Keep the target sharp, unobstructed, and visible to all required cameras.</li><li>Secure cameras so they do not move after calibration.</li><li>For ground-plane calibration, follow the version-specific initial-board placement and stillness instructions.</li><li>Not every single-camera test needs multi-camera calibration.</li></ul></div></details>
+        <h2 id="tracking">Tracking quality problems</h2>
+        <details><summary>Body landmarks are missing or jittery</summary><div><ul><li>Prefer original footage at 1080p or higher and 30–60 FPS when practical; avoid heavy compression and motion blur.</li><li>Use even lighting, a stable camera, a clean background, and full-body framing.</li><li>Reduce occlusion and try a short, simple motion.</li><li>Review calibration and camera coverage if using multiple cameras.</li></ul><p>Converting an existing low-resolution video cannot restore missing details.</p></div></details>
+        <h2 id="blender">Blender import or export problems</h2>
+        <details><summary>No Blender scene or unexpected output format</summary><div><ul><li>Check Blender detection and the FreeMoCap release's documented compatibility with your Blender version.</li><li>Verify that the selected detector supports that release's Blender exporter. Upstream's current integrated exporter documents MediaPipe output support; compatibility may change.</li><li>Do not assume every release creates a <code>.blend</code>, FBX, or BVH. Check the format actually produced.</li><li>A raw skeleton data file is not necessarily a Blender animation scene. Preserve the recording folder and full error message.</li></ul></div></details>
+        <h2 id="retargeting">Retargeting issues</h2>
+        <details><summary>Character twists, drifts, or does not animate</summary><div><ul><li>Confirm the source motion plays before retargeting.</li><li>Use a retargeting tool that supports your Blender version and both skeletons. Rokoko add-on compatibility with FreeMoCap data is not assumed; verify current tool documentation.</li><li>Check bone mapping, rest pose, root motion, scale, and forward/up axes.</li><li>Inspect the entire animation for foot sliding, floor penetration, and twisted limbs before baking.</li></ul></div></details>
+        <h2 id="ask">Still stuck?</h2><p>Include your Windows, FreeMoCap, Blender, and FFmpeg versions, the exact step that fails, and the complete error message. Share only recordings you have permission to share, and remove personal information from screenshots and logs.</p>
+        <p>See the <a href="https://freemocap.github.io/documentation/index_md.html">official FreeMoCap documentation</a> or return to the <a href="../index.html">workflow overview</a>.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

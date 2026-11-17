@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/sitemap.xml

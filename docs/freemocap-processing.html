@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Import video into FreeMoCap, process a recording, and review version-dependent motion tracking outputs.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="FreeMoCap Processing · Motion Workflow"><meta property="og:description" content="Import video into FreeMoCap, process a recording, and review version-dependent motion tracking outputs.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/freemocap-processing.html">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/freemocap-processing.html">
+  <title>FreeMoCap Processing · Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css"><script src="../assets/js/site.js" defer></script>
+</head>
+<body data-page="freemocap-processing">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Capture &amp; process</span><span>/</span><span>FreeMoCap processing</span></div>
+      <div class="doc-label">05 / CAPTURE &amp; PROCESS</div><h1 class="doc-title">FreeMoCap processing</h1>
+      <p class="doc-description">Bring in a supported video or recording, run the workflow for your version, and review what it produced.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>FreeMoCap</span><span>·</span><span>Labels and outputs vary by release</span></div>
+      <div class="doc-content" data-doc-content>
+        <p>FreeMoCap's interface evolves. Use the existing-video or recording-session instructions in the <a href="https://freemocap.github.io/documentation/index_md.html">current official documentation</a> for your installed release. Do not copy clips into undocumented internal folders.</p>
+        <h2 id="import">Import a video</h2>
+        <ol>
+          <li>Open FreeMoCap and select the documented workflow for a new session or for processing existing video.</li>
+          <li>Select the original iPhone video if your version accepts its container and codec. Otherwise, make an MP4 copy using the <a href="video-conversion.html">conversion guide</a>.</li>
+          <li>For multi-camera reconstruction, include the synchronized views for the same recording and use a matching successful calibration. A single video is suitable for a single-camera test.</li>
+          <li>Confirm that the clip loads and the subject is visible before continuing.</li>
+        </ol>
+        <img class="doc-screenshot" src="../assets/images/freemocap-import.png" alt="Placeholder: FreeMoCap video import">
+        <h2 id="process">Process the recording</h2>
+        <ol>
+          <li>Select the imported recording or session.</li>
+          <li>Choose a detector and options supported by your installed version and intended export workflow.</li>
+          <li>Start the processing pipeline using the in-app action. Labels such as <strong>Continue to Mocap Setup</strong>, <strong>Process Recording</strong>, <strong>Run Pipeline</strong>, and <strong>Start Processing</strong> are examples from particular interfaces, not guaranteed names.</li>
+          <li>Wait until the application reports completion. Processing time depends on video duration, resolution, hardware, number of cameras, and selected method.</li>
+        </ol>
+        <h2 id="review">Review the tracking result</h2>
+        <ul>
+          <li>Check that the subject is tracked through the whole clip and that the reconstructed motion is plausible.</li>
+          <li>Look for missing frames, jumps, jitter, identity swaps, drifting joints, or limbs hidden behind the body.</li>
+          <li>If results are poor, improve capture framing/lighting and verify calibration before repeating a short test.</li>
+        </ul>
+        <img class="doc-screenshot" src="../assets/images/freemocap-tracking.png" alt="Placeholder: FreeMoCap motion tracking result">
+        <h2 id="outputs">Find the generated files</h2>
+        <p>Open the output directory using the path displayed by the application. The user-reported example for this setup is <code>C:\Users\jakee\freemocap_data\recordings</code>; your configured data directory may differ.</p>
+        <p>Generated folder names and file sets depend on software version and detector. Examples reported for one workflow include <code>output_data</code>, <code>rtmpose_body_3d_xyz.npy</code>, <code>rtmpose_skeleton_3d.npy</code>, <code>rtmpose_left_hand_3d_xyz.npy</code>, <code>rtmpose_right_hand_3d_xyz.npy</code>, and <code>rtmpose_face_3d_xyz.npy</code>. These are not universal filenames and are not required for every successful run.</p>
+        <h2 id="next">Next step</h2><p>Continue to <a href="blender-export.html">Blender export</a> using an option supported by your detector and FreeMoCap release.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

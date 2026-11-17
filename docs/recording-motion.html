@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Record clear iPhone motion capture footage with full-body framing, steady video, good light, and minimal compression.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Recording Motion · FreeMoCap Motion Workflow"><meta property="og:description" content="Record clear iPhone motion capture footage with full-body framing, steady video, good light, and minimal compression.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/recording-motion.html">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/recording-motion.html">
+  <title>Recording Motion · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css"><script src="../assets/js/site.js" defer></script>
+</head>
+<body data-page="recording-motion">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Capture &amp; process</span><span>/</span><span>Recording motion</span></div>
+      <div class="doc-label">04 / CAPTURE &amp; PROCESS</div><h1 class="doc-title">Recording motion</h1>
+      <p class="doc-description">Get a clean iPhone take with a steady camera, full-body framing, and enough image detail for tracking.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>iPhone capture</span><span>·</span><span>Start with a short test</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note"><p><strong>Use the original iPhone video whenever possible.</strong> Avoid heavily compressed copies. Re-encoding a low-quality source does not restore lost detail.</p></div>
+        <h2 id="quality">Choose recording quality</h2>
+        <ul>
+          <li>A practical target is 1080p or higher at 30–60 FPS when supported by your phone and appropriate for available storage.</li>
+          <li>4K is optional, not essential for every workflow. Higher resolution increases storage and processing requirements.</li>
+          <li>Avoid very low-resolution sources (such as 176 × 144) and low frame rates (such as 10 FPS) when you can record a better source.</li>
+          <li>Keep the original file and transfer it without messaging-app recompression when possible.</li>
+        </ul>
+        <img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Placeholder: iPhone recording setup">
+        <h2 id="camera">Set up the camera</h2>
+        <ol>
+          <li>Place the iPhone on a stable tripod or mount. Keep the camera still; avoid panning, zooming, and changing orientation mid-take.</li>
+          <li>Frame the full body from head to feet, with some space around the hands and limbs for the whole movement.</li>
+          <li>Use bright, even lighting and a clear background with contrast from the subject's clothes.</li>
+          <li>A distance of around 8–15 feet can be a starting point if the room allows, but prioritize clear, full-body framing over a fixed distance.</li>
+          <li>Reduce motion blur and occlusion. Fitted clothing can make body landmarks easier to see; avoid props or loose fabric hiding joints.</li>
+        </ol>
+        <h2 id="take">Record a first test</h2>
+        <ol>
+          <li>Start recording before entering or moving in the capture area.</li>
+          <li>Pause briefly, perform a simple movement at a natural speed, then pause before stopping.</li>
+          <li>Keep the entire action in view. For an initial single-camera test, choose a movement that does not frequently hide limbs behind the torso.</li>
+          <li>Play the file on the computer and confirm it is sharp, complete, and has the expected orientation and duration.</li>
+        </ol>
+        <h2 id="multi-camera">If you are using multiple cameras</h2>
+        <p>Use the FreeMoCap instructions for your camera setup. Multiple independent iPhone clips are not automatically synchronized. For multi-camera reconstruction, camera timing, overlapping views, and a matching calibration all matter; keep cameras fixed after calibration.</p>
+        <h2 id="next">Next step</h2><p>Import the original clip if your FreeMoCap version supports it, or use an MP4 copy if needed. Continue to <a href="freemocap-processing.html">FreeMoCap processing</a>.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Use the Blender export supported by your FreeMoCap version and inspect the resulting scene or motion file.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Blender Export · FreeMoCap Motion Workflow"><meta property="og:description" content="Use the Blender export supported by your FreeMoCap version and inspect the resulting scene or motion file.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/blender-export.html">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/blender-export.html">
+  <title>Blender Export · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css"><script src="../assets/js/site.js" defer></script>
+</head>
+<body data-page="blender-export">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Blender &amp; retargeting</span><span>/</span><span>Blender export</span></div>
+      <div class="doc-label">06 / BLENDER &amp; RETARGETING</div><h1 class="doc-title">Blender export</h1>
+      <p class="doc-description">Create motion data through the exporter supported by your FreeMoCap release, then verify the result in Blender.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>FreeMoCap → Blender</span><span>·</span><span>Version and detector dependent</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note note-warn"><p><strong>Do not assume every detector or release exports to Blender.</strong> Upstream FreeMoCap's current integrated exporter documents MediaPipe output support. Confirm the current release's compatibility before processing a session for export.</p></div>
+        <h2 id="choose">Choose a supported export path</h2>
+        <ol>
+          <li>Finish processing the recording in FreeMoCap and note the detector used.</li>
+          <li>Check the documentation and export controls available for that exact release and detector.</li>
+          <li>Use the supported Blender integration or documented intermediate file format. UI labels may differ; do not rely on a specific “Generate Blender Scene” button.</li>
+          <li>If requested, point FreeMoCap to the installed Blender executable and use a compatible Blender/add-on version.</li>
+        </ol>
+        <h2 id="formats">Understand the output</h2>
+        <p>A workflow may generate a Blender <code>.blend</code> scene or another documented exchange format, such as FBX or BVH. These are possible examples, not a promise that every FreeMoCap workflow generates each type. Verify which file was actually produced and retain the session folder.</p>
+        <p>Files containing 3D skeleton coordinates or CSV data are not automatically animation files or Mixamo-ready armatures. Do not change a file extension to convert formats.</p>
+        <img class="doc-screenshot" src="../assets/images/blender-import.png" alt="Placeholder: FreeMoCap motion imported into Blender">
+        <h2 id="open">Open and inspect in Blender</h2>
+        <ol>
+          <li>Open the generated <code>.blend</code> file directly if the exporter produced one, or use the documented importer for the actual exchange format.</li>
+          <li>Confirm that the expected skeleton, armature, or motion object appears in the Outliner and viewport.</li>
+          <li>Scrub the timeline and play the animation. Check the frame range, axis orientation, and scale.</li>
+          <li>Save a separate working copy before retargeting or changing transforms.</li>
+        </ol>
+        <h2 id="next">Next step</h2><p>Once source motion is visible, review <a href="mixamo-retargeting.html">Mixamo retargeting</a>. If export fails, see <a href="troubleshooting.html#blender">Blender troubleshooting</a>.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

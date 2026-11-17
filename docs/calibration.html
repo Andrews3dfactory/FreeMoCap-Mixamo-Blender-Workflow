@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepare and record FreeMoCap ChArUco calibration video and follow the version-specific ground-plane workflow.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Calibration · FreeMoCap Motion Workflow"><meta property="og:description" content="Prepare and record FreeMoCap ChArUco calibration video and follow the version-specific ground-plane workflow.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/calibration.html">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/calibration.html">
+  <title>Calibration · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css"><script src="../assets/js/site.js" defer></script>
+</head>
+<body data-page="calibration">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Capture &amp; process</span><span>/</span><span>Calibration</span></div>
+      <div class="doc-label">03 / CAPTURE &amp; PROCESS</div><h1 class="doc-title">Calibration</h1>
+      <p class="doc-description">Prepare a ChArUco board and record calibration footage for supported multi-camera or ground-plane workflows.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>Multi-camera setup</span><span>·</span><span>Follow your installed version</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note"><p><strong>Not every capture needs calibration.</strong> FreeMoCap's single-camera guide describes a single-camera recording as a good first test without calibration. Follow the workflow for your number of cameras and intended coordinate frame.</p></div>
+        <h2 id="board">Prepare the ChArUco board</h2>
+        <ol>
+          <li>Use the exact ChArUco board pattern specified in FreeMoCap's current documentation or shown by your installed version.</li>
+          <li>Print at the required scale. Disable “fit to page” or auto-scaling when exact dimensions matter.</li>
+          <li>Mount the print flat to rigid backing and avoid bends, glare, damage, or occlusion.</li>
+          <li>Enter the board layout and dimensions in FreeMoCap so they match the physical print.</li>
+        </ol>
+        <p>A 7 × 5 layout with 58 mm squares is an example seen in one setup; it is <strong>not</strong> a universal FreeMoCap value. Use the board and dimensions configured for your session.</p>
+        <img class="doc-screenshot" src="../assets/images/calibration-board.png" alt="Placeholder: ChArUco calibration board">
+        <h2 id="recording">Record calibration footage</h2>
+        <ol>
+          <li>Position and secure cameras for the intended capture area. Their views should overlap if the chosen workflow requires multi-camera reconstruction.</li>
+          <li>Use FreeMoCap's calibration recording workflow and follow its current prompts for camera count and recording duration.</li>
+          <li>Keep the whole board visible and sharp. Move and tilt it through different positions and orientations in the observed area as directed by the app.</li>
+          <li>Keep cameras stationary after calibration. Record under conditions similar to the motion capture session.</li>
+          <li>Review the clip before processing to check that the board is detectable in each required view.</li>
+        </ol>
+        <p>Specific duration, board-motion instructions, calibration button labels, and available paths vary by release. Follow the <a href="https://freemocap.github.io/documentation/index_md.html">current FreeMoCap documentation</a> rather than assuming a fixed 10–30 second recording or a particular screen.</p>
+        <img class="doc-screenshot" src="../assets/images/calibration-process.png" alt="Placeholder: FreeMoCap calibration processing">
+        <h2 id="process">Run calibration</h2>
+        <p>Select the calibration recording in the workflow available in your installation, enter the matching board settings, and run the calibration step. Wait for a success status or review the full error. A label such as <strong>Calibrate</strong> may differ by version.</p>
+        <p>For multi-camera 3D reconstruction, use calibration that matches the cameras and their positions. Moving a camera after calibration may invalidate the result.</p>
+        <h2 id="ground-plane">Ground-plane alignment</h2>
+        <p>Some FreeMoCap workflows support using a ChArUco board as a ground-plane reference. The official guide for that workflow describes a special initial recording period: the board is flat on the floor, stationary, and visible to the cameras. The exact checkbox and processing step differ by release.</p>
+        <div class="doc-note note-warn"><p><strong>Do not assume calibration always improves body scale or tracking.</strong> It helps establish camera geometry or coordinate orientation when supported and configured correctly; capture quality, camera setup, and the processing method still matter.</p></div>
+        <h2 id="next">Next step</h2><p>After calibration succeeds, see <a href="recording-motion.html">how to record iPhone motion footage</a>, then <a href="freemocap-processing.html">import and process your session</a>.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>
