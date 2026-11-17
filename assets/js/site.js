@@ -12,6 +12,7 @@
     { id: "blender-export", title: "Blender export", href: "docs/blender-export.html", description: "Create and inspect supported Blender motion data.", number: "06", group: "BLENDER & RETARGETING", difficulty: "Intermediate", duration: "5 min" },
     { id: "mixamo-retargeting", title: "Mixamo retargeting", href: "docs/mixamo-retargeting.html", description: "Map motion onto a Mixamo-rigged character.", number: "07", group: "BLENDER & RETARGETING", difficulty: "Advanced", duration: "20 min" },
     { id: "results-examples", title: "Results & Examples", href: "docs/results-examples.html", description: "Preview each stage from source video to final animation.", number: "08", group: "PROJECT RESOURCES", difficulty: "Intermediate", duration: "5 min" },
+    { id: "visual-companion", title: "Visual Companion", href: "docs/visual-companion.html", description: "Browse workflow illustrations, actual references, and screenshot placeholders.", number: "✧", group: "PROJECT RESOURCES", difficulty: "Beginner" },
     { id: "common-mistakes", title: "Common Mistakes", href: "docs/common-mistakes.html", description: "Avoid the setup and capture mistakes that derail a first take.", number: "!", group: "PROJECT RESOURCES", difficulty: "Beginner", duration: "8 min" },
     { id: "changelog", title: "Changelog", href: "docs/changelog.html", description: "See recent improvements to this community guide.", number: "↗", group: "HELP", difficulty: "Beginner" },
     { id: "troubleshooting", title: "Troubleshooting", href: "docs/troubleshooting.html", description: "Resolve common setup, capture, and export issues.", number: "?", group: "HELP", difficulty: "Intermediate" }
@@ -422,4 +423,56 @@
   window.addEventListener("resize", updateScrollState);
   updateScrollState();
   backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  const lightboxItems = [...document.querySelectorAll("[data-lightbox-item]")];
+  const lightbox = document.querySelector("[data-image-lightbox]");
+  if (lightboxItems.length && lightbox && typeof lightbox.showModal === "function") {
+    const lightboxImage = lightbox.querySelector("[data-lightbox-image]");
+    const lightboxCaption = lightbox.querySelector("[data-lightbox-caption]");
+    const lightboxCount = lightbox.querySelector("[data-lightbox-count]");
+    const closeButton = lightbox.querySelector("[data-lightbox-close]");
+    const previousButton = lightbox.querySelector("[data-lightbox-prev]");
+    const nextButton = lightbox.querySelector("[data-lightbox-next]");
+    let activeIndex = 0;
+    let returnFocus = null;
+
+    const showItem = (index) => {
+      activeIndex = (index + lightboxItems.length) % lightboxItems.length;
+      const item = lightboxItems[activeIndex];
+      const thumbnail = item.querySelector("img");
+      if (!thumbnail || !lightboxImage || !lightboxCaption) return;
+      lightboxImage.src = thumbnail.currentSrc || thumbnail.src;
+      lightboxImage.alt = thumbnail.alt;
+      lightboxCaption.textContent = item.querySelector("figcaption")?.textContent.trim() || thumbnail.alt;
+      if (lightboxCount) lightboxCount.textContent = `${activeIndex + 1} of ${lightboxItems.length}`;
+    };
+
+    lightboxItems.forEach((item, index) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        returnFocus = item;
+        showItem(index);
+        lightbox.showModal();
+        closeButton?.focus();
+      });
+    });
+    previousButton?.addEventListener("click", () => showItem(activeIndex - 1));
+    nextButton?.addEventListener("click", () => showItem(activeIndex + 1));
+    closeButton?.addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showItem(activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showItem(activeIndex + 1);
+      }
+    });
+    lightbox.addEventListener("close", () => {
+      if (returnFocus?.isConnected) returnFocus.focus();
+    });
+  }
 })();

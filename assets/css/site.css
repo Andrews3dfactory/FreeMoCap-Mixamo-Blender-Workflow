@@ -220,6 +220,7 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
 .section-visual-note { display: flex; align-items: center; gap: 13px; margin: 15px 0 0; padding: 9px; border: 1px solid var(--border); border-radius: 10px; background: rgba(255,255,255,.022); }
 .section-visual-note img { display: block; width: 104px; height: 64px; flex: none; margin: 0; border: 1px solid var(--border); border-radius: 6px; object-fit: cover; }
 .section-visual-note img.ffmpeg-screenshot { object-fit: contain; background: #fff; }
+.section-visual-note img.calibration-board-image { object-fit: contain; background: #fff; }
 .section-visual-note figcaption { display: grid; gap: 3px; color: var(--muted); font-size: 9px; line-height: 1.5; }
 .section-visual-note figcaption strong { color: #b6d6f1; font-size: 10px; }
 .placeholder-note { margin: 11px 0 0; color: #8492a3; font-size: 10px; }
@@ -279,6 +280,7 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
 .doc-figure .doc-screenshot { width: 100%; height: auto; margin: 0; aspect-ratio: 1.78; object-fit: cover; }
 .doc-figure .doc-screenshot.ffmpeg-screenshot { aspect-ratio: auto; object-fit: contain; background: #101318; }
 .doc-figure .calibration-board-image { aspect-ratio: auto; object-fit: contain; background: #fff; }
+.doc-figure .doc-screenshot.marketing-artwork { aspect-ratio: 3 / 2; object-fit: contain; background: #080d14; }
 .doc-figure figcaption { display: grid; gap: 4px; padding: 10px 3px 2px; color: var(--muted); font-size: 10px; line-height: 1.55; }
 .doc-figure figcaption strong { color: #b6d6f1; font-size: 10px; }
 .doc-aside { position: sticky; top: calc(var(--topbar-height) + 26px); align-self: start; max-height: calc(100vh - var(--topbar-height) - 48px); overflow-y: auto; padding: 12px 0; }
@@ -580,4 +582,60 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
   .story-mistake-list { grid-template-columns: 1fr; }
   .story-quote { padding: 15px 16px; }
   .story-workflow-step { min-height: 46px; }
+}
+
+.hero-artwork { position: relative; z-index: 1; margin: 12px 0 0; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: rgba(5, 10, 17, .45); }
+.hero-artwork img, .workflow-banner-figure img, .before-after-figure img, .final-goal-figure img { display: block; width: 100%; height: auto; }
+.hero-artwork figcaption, .workflow-banner-figure figcaption, .before-after-figure figcaption, .final-goal-figure figcaption { display: grid; gap: 4px; padding: 10px 12px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.workflow-banner-figure, .before-after-figure, .final-goal-figure { overflow: hidden; margin: 15px 0 0; border: 1px solid var(--border); border-radius: 13px; background: rgba(255, 255, 255, .025); box-shadow: 0 16px 38px rgba(0, 0, 0, .13); }
+.workflow-banner-figure img, .before-after-figure img, .final-goal-figure img { aspect-ratio: 3 / 2; object-fit: contain; background: #080d14; }
+.workflow-stage-list { display: grid; max-width: 530px; gap: 0; margin: 19px auto 0; padding: 0; list-style: none; }
+.workflow-stage-list li { position: relative; margin-bottom: 23px; padding: 9px 14px; border: 1px solid var(--border); border-radius: 9px; background: linear-gradient(110deg, rgba(69, 165, 255, .08), rgba(255, 255, 255, .02)); color: var(--text); font-size: 12px; font-weight: 610; text-align: center; }
+.workflow-stage-list li:last-child { margin-bottom: 0; }
+.workflow-stage-list li:not(:last-child)::after { position: absolute; bottom: -21px; left: 50%; color: var(--blue-bright); content: "↓"; font-size: 16px; transform: translateX(-50%); }
+.visual-companion-link { display: table; margin: 17px auto 0; }
+.before-after-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(220px, .85fr); gap: 20px; align-items: center; margin-top: 16px; }
+.before-after-figure { margin: 0; }
+.before-after-steps { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.before-after-steps li { position: relative; margin-bottom: 22px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 9px; background: rgba(255, 255, 255, .03); color: var(--text); font-size: 12px; font-weight: 600; text-align: center; }
+.before-after-steps li:last-child { margin-bottom: 0; }
+.before-after-steps li:not(:last-child)::after { position: absolute; bottom: -20px; left: 50%; color: var(--blue-bright); content: "↓"; font-size: 16px; transform: translateX(-50%); }
+.before-after-figure figcaption strong, .final-goal-figure figcaption strong { color: #d7eaff; font-size: 11px; }
+.final-goal-figure { max-width: 930px; margin: 16px auto 0; }
+.placeholder-label { display: inline-flex; align-items: center; align-self: start; width: fit-content; margin-top: 3px; padding: 3px 6px; border: 1px solid rgba(240, 191, 105, .25); border-radius: 5px; background: rgba(240, 191, 105, .08); color: #f0c77e; font-size: 8px; font-weight: 700; letter-spacing: .045em; line-height: 1.4; text-transform: uppercase; }
+.doc-figure .placeholder-label { margin-top: 5px; }
+.gallery-disclaimer { border-color: rgba(69, 165, 255, .25); background: linear-gradient(100deg, rgba(69, 165, 255, .09), rgba(69, 165, 255, .025)); }
+.visual-gallery { margin-top: 15px; }
+.visual-gallery a { height: 100%; }
+.visual-gallery figcaption { min-height: 78px; }
+.visual-gallery img:not(.ffmpeg-screenshot):not(.calibration-board-image) { aspect-ratio: 3 / 2; object-fit: cover; }
+.visual-gallery img.calibration-board-image { aspect-ratio: 3 / 2; object-fit: contain; }
+.image-lightbox { width: min(94vw, 1120px); max-width: none; max-height: 92vh; margin: auto; padding: 14px; overflow: auto; border: 1px solid var(--border-strong); border-radius: 15px; background: #0c131d; color: var(--text); box-shadow: 0 25px 80px rgba(0, 0, 0, .55); }
+.image-lightbox::backdrop { background: rgba(1, 4, 9, .86); backdrop-filter: blur(7px); }
+.lightbox-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lightbox-count { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.lightbox-controls { display: flex; gap: 7px; }
+.lightbox-controls button { min-height: 36px; padding: 6px 11px; border: 1px solid var(--border-strong); border-radius: 7px; background: rgba(255, 255, 255, .045); color: var(--text); font-size: 10px; cursor: pointer; }
+.lightbox-controls button:hover { border-color: rgba(69, 165, 255, .45); background: rgba(69, 165, 255, .13); }
+.lightbox-figure { display: grid; justify-items: center; gap: 10px; margin: 12px 0 0; }
+.lightbox-figure img { display: block; width: auto; max-width: 100%; max-height: calc(86vh - 100px); object-fit: contain; }
+.lightbox-figure figcaption { max-width: 800px; color: #c0ccd8; font-size: 11px; line-height: 1.55; text-align: center; }
+[data-theme="light"] .hero-artwork, [data-theme="light"] .workflow-banner-figure, [data-theme="light"] .before-after-figure, [data-theme="light"] .final-goal-figure { border-color: var(--border); background: rgba(255, 255, 255, .7); }
+[data-theme="light"] .workflow-banner-figure img, [data-theme="light"] .before-after-figure img, [data-theme="light"] .final-goal-figure img { background: #e8eff6; }
+[data-theme="light"] .before-after-figure figcaption strong, [data-theme="light"] .final-goal-figure figcaption strong { color: #25415c; }
+[data-theme="light"] .workflow-stage-list li, [data-theme="light"] .before-after-steps li { background: rgba(255, 255, 255, .82); color: #253b50; }
+[data-theme="light"] .placeholder-label { border-color: rgba(154, 104, 22, .2); background: rgba(209, 146, 40, .1); color: #754d08; }
+[data-theme="light"] .image-lightbox { border-color: rgba(159, 181, 207, .25); background: #101721; color: #f0f5fb; }
+
+@media (max-width: 850px) {
+  .before-after-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .hero-artwork img { aspect-ratio: 3 / 2; object-fit: cover; }
+  .visual-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .visual-gallery figcaption { min-height: 110px; padding: 8px; }
+  .image-lightbox { width: calc(100vw - 20px); padding: 10px; }
+  .lightbox-toolbar { align-items: flex-start; flex-direction: column; }
+  .lightbox-controls { width: 100%; }
+  .lightbox-controls button { flex: 1; padding-right: 7px; padding-left: 7px; }
 }

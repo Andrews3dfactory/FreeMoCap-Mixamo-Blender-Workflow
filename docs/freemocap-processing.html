@@ -12,7 +12,7 @@
   <meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
   <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/freemocap-processing.html">
   <title>FreeMoCap Processing · Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=12" defer></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=14"><script src="../assets/js/site.js?v=13" defer></script>
 </head>
 <body data-page="freemocap-processing">
   <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -33,7 +33,7 @@
           <li>For multi-camera reconstruction, include the synchronized views for the same recording and use a matching successful calibration. A single video is suitable for a single-camera test.</li>
           <li>Confirm that the clip loads and the subject is visible before continuing.</li>
         </ol>
-        <img class="doc-screenshot" src="../assets/images/freemocap-import.png" alt="Placeholder: FreeMoCap video import">
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/freemocap-import.png" alt="Placeholder: FreeMoCap video import"><figcaption><strong>FreeMoCap video import</strong><span>Controls vary by installed release; use its documented import flow.</span><span class="placeholder-label">Screenshot coming soon</span></figcaption></figure>
         <h2 id="process">Process the recording</h2>
         <ol>
           <li>Select the imported recording or session.</li>
@@ -47,7 +47,7 @@
           <li>Look for missing frames, jumps, jitter, identity swaps, drifting joints, or limbs hidden behind the body.</li>
           <li>If results are poor, improve capture framing/lighting and verify calibration before repeating a short test.</li>
         </ul>
-        <img class="doc-screenshot" src="../assets/images/freemocap-tracking.png" alt="Placeholder: FreeMoCap motion tracking result">
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/freemocap-tracking.png" alt="Placeholder: FreeMoCap motion tracking result"><figcaption><strong>FreeMoCap tracking result</strong><span>Review the output in the application before exporting.</span><span class="placeholder-label">Screenshot coming soon</span></figcaption></figure>
         <h2 id="outputs">Find the generated files</h2>
         <p>Open the output directory using the path displayed by the application. The user-reported example for this setup is <code>C:\Users\jakee\freemocap_data\recordings</code>; your configured data directory may differ.</p>
         <p>Generated folder names and file sets depend on software version and detector. Examples reported for one workflow include <code>output_data</code>, <code>rtmpose_body_3d_xyz.npy</code>, <code>rtmpose_skeleton_3d.npy</code>, <code>rtmpose_left_hand_3d_xyz.npy</code>, <code>rtmpose_right_hand_3d_xyz.npy</code>, and <code>rtmpose_face_3d_xyz.npy</code>. These are not universal filenames and are not required for every successful run.</p>

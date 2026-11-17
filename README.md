@@ -71,7 +71,7 @@ ffmpeg -version
 
 If `where ffmpeg` cannot find the executable, continue to [Add FFmpeg to PATH](#2-add-ffmpeg-to-windows-path).
 
-![Placeholder: screenshot of the FFmpeg installation folder](images/ffmpeg-install.png)
+![User-provided Windows screenshot of the extracted FFmpeg bin folder](assets/images/ffmpeg-install.png)
 
 [Back to table of contents](#table-of-contents) · [Next: configure PATH](#2-add-ffmpeg-to-windows-path)
 
@@ -122,7 +122,7 @@ ffmpeg -i "C:\Users\YourName\Downloads\Your-File-Name_FreeMoCap.mp4"
 
 If the source has no audio stream, FFmpeg may print an audio-related warning; video conversion can still be usable. See [conversion troubleshooting](docs/troubleshooting.md#ffmpeg-cannot-find-or-convert-a-video).
 
-![Placeholder: screenshot of the FFmpeg conversion command](images/convert-video.png)
+![User-provided screenshot of a 3GP-to-MP4 conversion command](assets/images/convert-video.png)
 
 [Back to table of contents](#table-of-contents) · [Next: calibration](#4-create-and-record-a-calibration-video)
 
@@ -139,7 +139,7 @@ Calibration setup depends on whether you use one camera or multiple cameras and 
 
 For example, a **7 × 5 board with 58 mm squares** may appear in a particular setup, but this is not a universal FreeMoCap requirement. Do not copy those example dimensions unless they match the board and settings you actually use.
 
-![Placeholder: screenshot of a correctly printed ChArUco board](images/calibration-board.png)
+![User-provided ChArUco calibration board reference; verify print dimensions against FreeMoCap settings](assets/images/calibration-board.png)
 
 ### Record and process calibration
 
@@ -179,7 +179,9 @@ FreeMoCap's interface and support for importing existing videos vary by version.
 4. For multi-camera processing, import the synchronized camera videos for one session and use the matching calibration. A single iPhone clip is suitable for a single-camera test; independently recorded clips are not automatically synchronized.
 5. Confirm the recording appears in the application's session/recordings list and that the video is readable before continuing.
 
-![Placeholder: screenshot of the FreeMoCap video import screen](images/freemocap-import.png)
+![Placeholder illustration for FreeMoCap video import](assets/images/freemocap-import.png)
+
+**Screenshot coming soon:** replace this illustration with a verified FreeMoCap import screenshot.
 
 [Back to table of contents](#table-of-contents) · [Next: process and verify](#7-process-and-verify-motion-data)
 
@@ -194,7 +196,9 @@ Select the imported recording and continue through the processing workflow expos
 
 Generated files depend on the FreeMoCap version and selected detector. Files such as `output_data`, `rtmpose_body_3d_xyz.npy`, `rtmpose_skeleton_3d.npy`, `rtmpose_left_hand_3d_xyz.npy`, `rtmpose_right_hand_3d_xyz.npy`, or `rtmpose_face_3d_xyz.npy` are examples only—not a required or guaranteed output list. Do not conclude processing failed solely because a differently named set of files was produced.
 
-![Placeholder: screenshot of a FreeMoCap processing result](images/freemocap-processing.png)
+![Placeholder illustration for FreeMoCap motion tracking](assets/images/freemocap-tracking.png)
+
+**Screenshot coming soon:** replace this illustration with a verified FreeMoCap tracking screenshot.
 
 [Back to table of contents](#table-of-contents) · [Next: Blender data](#8-generate-blender-compatible-data)
 
@@ -241,7 +245,9 @@ FreeMoCap motion → supported export → Blender source skeleton
     → compatible retargeting workflow → Mixamo armature → character animation
 ```
 
-![Placeholder: screenshot of a retargeted Mixamo character in Blender](images/blender-retarget.png)
+![Placeholder illustration for character retargeting in Blender](assets/images/rokoko-retarget.png)
+
+**Screenshot coming soon:** replace this illustration with a verified retargeting screenshot.
 
 [Back to table of contents](#table-of-contents) · [Need help? Troubleshooting](#troubleshooting)
 
