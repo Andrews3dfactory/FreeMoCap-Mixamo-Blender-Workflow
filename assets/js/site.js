@@ -69,6 +69,7 @@
     if (!searchResults || !searchInput) return;
     searchResults.classList.remove("is-open");
     searchInput.setAttribute("aria-expanded", "false");
+    searchInput.removeAttribute("aria-activedescendant");
     searchResults.querySelectorAll(".search-result").forEach((item) => item.setAttribute("aria-selected", "false"));
     selectedResult = -1;
   };
@@ -83,10 +84,11 @@
       empty.textContent = "No matching guide pages.";
       searchResults.appendChild(empty);
     } else {
-      matches.forEach((page) => {
+      matches.forEach((page, index) => {
         const link = document.createElement("a");
         link.className = "search-result";
         link.href = absoluteHref(page.href);
+        link.id = "search-result-" + index;
         link.setAttribute("role", "option");
         link.setAttribute("aria-selected", "false");
         link.innerHTML = "<strong></strong><small></small>";
@@ -124,6 +126,8 @@
         item.setAttribute("aria-selected", String(index === selectedResult));
         if (index === selectedResult) item.scrollIntoView({ block: "nearest" });
       });
+      if (results[selectedResult]) searchInput.setAttribute("aria-activedescendant", results[selectedResult].id);
+      else searchInput.removeAttribute("aria-activedescendant");
     });
     document.addEventListener("pointerdown", (event) => {
       if (!event.target.closest(".topbar-search")) closeSearch();
@@ -225,6 +229,22 @@
         toc.appendChild(link);
       }
     });
+    if (toc && headings.length) {
+      const mobileToc = document.createElement("details");
+      mobileToc.className = "mobile-toc";
+      const summary = document.createElement("summary");
+      summary.textContent = "On this page";
+      const mobileNav = document.createElement("nav");
+      mobileNav.className = "toc-nav";
+      mobileNav.setAttribute("aria-label", "Table of contents");
+      toc.querySelectorAll("a").forEach((original) => {
+        const link = original.cloneNode(true);
+        link.addEventListener("click", () => { mobileToc.open = false; });
+        mobileNav.appendChild(link);
+      });
+      mobileToc.append(summary, mobileNav);
+      docContent.parentElement.insertBefore(mobileToc, docContent);
+    }
     if (toc && "IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -244,6 +264,27 @@
       pager.querySelector("[data-pager-prev] .pager-title").textContent = prev.title;
       if (next) pager.querySelector("[data-pager-next] .pager-title").textContent = next.title;
     }
+  }
+
+  const revealItems = [...document.querySelectorAll(
+    ".section-block, .feature-card, .quickstart-step, .checklist-card, .trouble-card, .closing-banner, .doc-content h2, .doc-content h3"
+  )];
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealItems.forEach((item, index) => {
+      item.classList.add("js-reveal");
+      if (item.classList.contains("feature-card") || item.classList.contains("quickstart-step") || item.classList.contains("trouble-card")) {
+        item.dataset.revealDelay = String(index % 4);
+      }
+    });
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
+    revealItems.forEach((item) => revealObserver.observe(item));
   }
 
   const progressBar = document.querySelector("#reading-progress-bar");
