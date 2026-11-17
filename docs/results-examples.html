@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the stages of an iPhone video-to-Blender animation workflow, from recording and FreeMoCap tracking to retargeting.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Results &amp; Examples · FreeMoCap Motion Workflow"><meta property="og:description" content="Explore the stages of an iPhone video-to-Blender animation workflow, from recording and FreeMoCap tracking to retargeting.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/results-examples.html">
+  <meta property="og:image" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:secure_url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/results-examples.html">
+  <title>Results &amp; Examples · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=11" defer></script>
+</head>
+<body data-page="results-examples">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content" tabindex="-1"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Project resources</span><span>/</span><span>Results &amp; Examples</span></div>
+      <div class="doc-label">PROJECT RESOURCES</div><h1 class="doc-title">Results &amp; Examples</h1>
+      <p class="doc-description">A visual map of the files and checks you may encounter from the original phone video through a retargeted Blender character.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>5 workflow stages</span><span>·</span><span>Illustrative placeholders</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note"><p><strong>These are clearly labeled image placeholders—not real recordings or software screenshots.</strong> Actual interfaces, output formats, and filenames depend on your FreeMoCap, Blender, and retargeting-tool versions. Replace these cards with verified examples when available.</p></div>
+        <h2 id="raw-video">Raw iPhone Video</h2>
+        <p>Keep an untouched copy of the source recording. Review the full body framing, lighting, focus, and frame rate before deciding whether a compatible copy is needed.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Placeholder illustration for raw iPhone motion video"><figcaption><strong>Raw iPhone Video · placeholder</strong><span>Use the original as your source of truth; conversion, when needed, should create a separate copy.</span></figcaption></figure>
+        <p>See <a href="recording-motion.html">recording motion</a> for capture guidance and <a href="common-mistakes.html#low-resolution">common recording mistakes</a> for quality checks.</p>
+
+        <h2 id="tracking">FreeMoCap Tracking</h2>
+        <p>After importing and processing, inspect the tracked motion before moving on. Check for missing limbs, jitter, identity swaps, and other visible tracking issues.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/freemocap-tracking.png" alt="Placeholder illustration for FreeMoCap tracking output"><figcaption><strong>FreeMoCap Tracking · placeholder</strong><span>Confirm that the motion follows the performer throughout the clip.</span></figcaption></figure>
+        <p>Read <a href="freemocap-processing.html">FreeMoCap processing</a> for import, output, and review steps.</p>
+
+        <h2 id="blender-skeleton">Blender Skeleton</h2>
+        <p>Depending on your detector, exporter, and version, the result may be a Blender scene or an exchange file for an appropriate importer. Verify the actual output instead of expecting a particular filename or format.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/blender-import.png" alt="Placeholder illustration for a motion skeleton in Blender"><figcaption><strong>Blender Skeleton · placeholder</strong><span>Check orientation, scale, playback, and the frame range after importing.</span></figcaption></figure>
+        <p>Use the <a href="blender-export.html">Blender export guide</a> to inspect supported output for your installation.</p>
+
+        <h2 id="retargeted-character">Retargeted Character</h2>
+        <p>Retargeting maps motion from a source skeleton to a compatible character rig. Inspect bone mapping, rest pose, scale, axes, and deformation before treating a preview as final.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/rokoko-retarget.png" alt="Placeholder illustration for a retargeted character"><figcaption><strong>Retargeted Character · placeholder</strong><span>Check the whole timeline for twisting, drift, and foot sliding.</span></figcaption></figure>
+        <p>Follow <a href="mixamo-retargeting.html">Mixamo retargeting</a> and save a separate copy of the scene before making destructive changes.</p>
+
+        <h2 id="final-animation">Final Animation</h2>
+        <p>Play the complete timeline and review contact points, balance, clipping, and transitions. Export only after the scene behaves as expected in your target application.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/final-animation.png" alt="Placeholder illustration for a final Blender character animation"><figcaption><strong>Final Animation · placeholder</strong><span>Review the complete take, then save and export using the requirements of your target project.</span></figcaption></figure>
+        <div class="doc-note note-warn"><p><strong>No outcome is guaranteed by these examples.</strong> Capture quality, software versions, hardware, detector support, and rig compatibility all affect the result.</p></div>
+        <h2 id="next">Next step</h2><p>Continue with <a href="mixamo-retargeting.html">retargeting</a>, or see <a href="common-mistakes.html">common mistakes</a> before recording another take.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

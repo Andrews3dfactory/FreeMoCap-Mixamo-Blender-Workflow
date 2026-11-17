@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical, beginner-friendly guide to iPhone motion capture with FreeMoCap, Blender, and Mixamo.">
+  <meta name="description" content="Turn iPhone video into a Blender character animation with a clear, beginner-friendly FreeMoCap, FFmpeg, Blender, and Mixamo workflow.">
   <meta name="theme-color" content="#0a0e14">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FreeMoCap + Blender Motion Capture Workflow">
-  <meta property="og:description" content="Record motion on an iPhone, process it with FreeMoCap, and animate a Mixamo-rigged Blender character.">
+  <meta property="og:description" content="Turn iPhone video into a Blender character animation with a clear, beginner-friendly FreeMoCap, FFmpeg, Blender, and Mixamo workflow.">
   <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/">
+  <meta property="og:image" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png">
+  <meta property="og:image:secure_url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
   <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/">
   <title>FreeMoCap + Blender Motion Capture Workflow</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/site.css?v=4">
-  <script src="assets/js/site.js?v=4" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <script src="assets/js/site.js?v=11" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -56,47 +62,72 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-pulse"></span> A FIELD GUIDE FOR CREATORS</div>
-        <h1>FreeMoCap + Blender<br><span class="text-gradient">Motion Capture Workflow</span></h1>
-        <p class="hero-subtitle">Record motion on an iPhone, process it with FreeMoCap, and animate a Mixamo-rigged Blender character.</p>
+        <h1>Turn an iPhone video into a <span class="text-gradient">fully animated Blender character.</span></h1>
+        <p class="hero-subtitle">A beginner-friendly workflow using FreeMoCap, FFmpeg, Blender, and Mixamo.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="docs/ffmpeg-setup.html">Start the guide <span aria-hidden="true">→</span></a>
           <a class="button button-secondary" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer">View GitHub repository <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-meta"><span class="meta-dot"></span> WINDOWS · FREEMOCAP · BLENDER · MIXAMO</div>
+        <div class="hero-meta"><span class="meta-dot"></span> WINDOWS · FREEMOCAP · BLENDER · MIXAMO <span class="difficulty-label difficulty-beginner">Beginner</span></div>
       </div>
-      <div class="hero-visual" role="group" aria-label="Workflow from iPhone recording through FreeMoCap to an animated Blender character">
+      <div class="hero-visual" role="group" aria-label="Before-and-after workflow: iPhone video, motion tracking, and a Blender character">
         <div class="visual-glow"></div>
-        <div class="visual-topline"><span>THE PIPELINE</span><span class="live-label"><i></i> 6 STEPS</span></div>
-        <div class="flow-list">
-          <div class="flow-step"><span class="flow-icon phone-icon">◫</span><span><b>iPhone recording</b><small>Capture a clean, steady take</small></span><span class="flow-index">01</span></div>
-          <span class="flow-connector" aria-hidden="true">↓</span>
-          <div class="flow-step"><span class="flow-icon ffmpeg-icon">▶</span><span><b>FFmpeg</b><small>Convert only when needed</small></span><span class="flow-index">02</span></div>
-          <span class="flow-connector" aria-hidden="true">↓</span>
-          <div class="flow-step"><span class="flow-icon free-icon">F</span><span><b>FreeMoCap</b><small>Track and review motion</small></span><span class="flow-index">03</span></div>
-          <span class="flow-connector" aria-hidden="true">↓</span>
-          <div class="flow-step"><span class="flow-icon track-icon">✳</span><span><b>Motion tracking</b><small>Inspect the reconstructed data</small></span><span class="flow-index">04</span></div>
-          <span class="flow-connector" aria-hidden="true">↓</span>
-          <div class="flow-step"><span class="flow-icon blender-icon">◈</span><span><b>Blender</b><small>Import supported motion data</small></span><span class="flow-index">05</span></div>
-          <span class="flow-connector" aria-hidden="true">↓</span>
-          <div class="flow-step flow-step-final"><span class="flow-icon character-icon">✦</span><span><b>Mixamo character</b><small>Retarget, inspect, and animate</small></span><span class="flow-index">06</span></div>
+        <div class="visual-topline"><span>FROM FOOTAGE TO FINAL ANIMATION</span><span class="live-label"><i></i> 3 STAGES</span></div>
+        <div class="transformation-flow">
+          <figure class="transform-stage"><img src="assets/images/recording-motion.png" alt="Placeholder illustration for raw iPhone motion video"><figcaption><strong>Video recording</strong><small>Start with your original</small></figcaption></figure>
+          <span class="transform-arrow" aria-hidden="true">→</span>
+          <figure class="transform-stage"><img src="assets/images/freemocap-tracking.png" alt="Placeholder illustration for FreeMoCap motion tracking"><figcaption><strong>Motion tracking</strong><small>Reconstruct movement</small></figcaption></figure>
+          <span class="transform-arrow" aria-hidden="true">→</span>
+          <figure class="transform-stage"><img src="assets/images/final-animation.png" alt="Placeholder illustration for a retargeted Blender character animation"><figcaption><strong>Blender character</strong><small>Retarget and animate</small></figcaption></figure>
         </div>
-        <div class="visual-caption"><span class="caption-line"></span> FROM CAMERA TO CHARACTER</div>
+        <div class="visual-caption"><span class="caption-line"></span> ILLUSTRATION PLACEHOLDERS · NOT SOFTWARE SCREENSHOTS</div>
       </div>
     </section>
 
-    <section class="section-block">
+    <section class="section-block workflow-section" data-difficulty="Beginner">
       <div class="section-heading">
-        <div><div class="eyebrow">YOUR WORKFLOW, UNPACKED</div><h2>Motion capture, made approachable.</h2></div>
-        <p>Start with the footage you have. Move through the pipeline one clear step at a time.</p>
+        <div><div class="eyebrow">THE COMPLETE WORKFLOW</div><h2>Make the next step obvious.</h2></div>
+        <p>Each card opens a focused guide. Hover, focus, or tap through the sequence at your own pace.</p>
+      </div>
+      <div class="workflow-grid">
+        <a class="workflow-card" href="docs/recording-motion.html"><span class="workflow-card-top"><span class="workflow-number">01</span><span class="time-chip">5 min</span></span><h3>Record a clean take</h3><span class="difficulty-label difficulty-beginner">Beginner</span><p class="workflow-reveal">Frame the full body, stabilize the phone, and keep the original video.</p><span class="workflow-link">Open recording guide <b aria-hidden="true">→</b></span></a>
+        <a class="workflow-card" href="docs/video-conversion.html"><span class="workflow-card-top"><span class="workflow-number">02</span><span class="time-chip">1 min</span></span><h3>Prepare your video</h3><span class="difficulty-label difficulty-beginner">Beginner</span><p class="workflow-reveal">Convert a copy only when your installed FreeMoCap version needs it.</p><span class="workflow-link">Open conversion guide <b aria-hidden="true">→</b></span></a>
+        <a class="workflow-card" href="docs/calibration.html"><span class="workflow-card-top"><span class="workflow-number">03</span><span class="time-chip">10 min</span></span><h3>Calibrate when needed</h3><span class="difficulty-label difficulty-intermediate">Intermediate</span><p class="workflow-reveal">Follow matching board and camera steps for multi-camera capture.</p><span class="workflow-link">Open calibration guide <b aria-hidden="true">→</b></span></a>
+        <a class="workflow-card" href="docs/freemocap-processing.html"><span class="workflow-card-top"><span class="workflow-number">04</span><span class="time-chip">5 min</span></span><h3>Track your motion</h3><span class="difficulty-label difficulty-intermediate">Intermediate</span><p class="workflow-reveal">Import your footage, process it, then inspect the motion output.</p><span class="workflow-link">Open processing guide <b aria-hidden="true">→</b></span></a>
+        <a class="workflow-card" href="docs/mixamo-retargeting.html"><span class="workflow-card-top"><span class="workflow-number">05</span><span class="time-chip">20 min</span></span><h3>Retarget and animate</h3><span class="difficulty-label difficulty-advanced">Advanced</span><p class="workflow-reveal">Map compatible skeletons, review the whole take, then save a copy.</p><span class="workflow-link">Open retargeting guide <b aria-hidden="true">→</b></span></a>
+      </div>
+      <figure class="section-visual-note"><img src="assets/images/recording-motion.png" alt="Placeholder illustration for the first workflow stage"><figcaption><strong>Start with a clean take · illustration placeholder</strong><span>Move through the capture, tracking, and Blender stages in order; this is not a recorded workflow screenshot.</span></figcaption></figure>
+    </section>
+
+    <section class="section-block feature-section" data-difficulty="Beginner">
+      <div class="section-heading">
+        <div><div class="eyebrow">DESIGNED FOR A FIRST SUCCESS</div><h2>A practical guide, not another black box.</h2></div>
+        <p>Clear choices at each stage help you understand what to try, what to keep, and what to inspect.</p>
       </div>
       <div class="feature-grid">
-        <a class="feature-card" href="docs/recording-motion.html"><span class="card-index">01 / CAPTURE</span><span class="feature-icon icon-capture">◉</span><h3>Record yourself</h3><p>Frame the full body, steady the phone, and capture clean source footage.</p><span class="card-link">Capture essentials <b>→</b></span></a>
-        <a class="feature-card" href="docs/freemocap-processing.html"><span class="card-index">02 / TRACK</span><span class="feature-icon icon-track">✳</span><h3>Process with FreeMoCap</h3><p>Import a session, run the supported pipeline, and inspect its output.</p><span class="card-link">Explore processing <b>→</b></span></a>
-        <a class="feature-card" href="docs/mixamo-retargeting.html"><span class="card-index">03 / ANIMATE</span><span class="feature-icon icon-animate">✧</span><h3>Animate in Blender</h3><p>Bring motion into Blender and map it to a Mixamo-rigged character.</p><span class="card-link">Learn retargeting <b>→</b></span></a>
+        <a class="feature-card" href="docs/recording-motion.html"><span class="card-index">01 / CAPTURE WITH CONFIDENCE</span><span class="feature-icon" aria-hidden="true">◉</span><h3>Start with footage you can trust</h3><p>Frame the whole movement, keep your original recording, and check quality before processing.</p><span class="card-link">Recording guidance <b aria-hidden="true">→</b></span></a>
+        <a class="feature-card" href="docs/freemocap-processing.html"><span class="card-index">02 / FOLLOW YOUR VERSION</span><span class="feature-icon icon-track" aria-hidden="true">⌁</span><h3>Know what the tools actually support</h3><p>Version-aware notes help you confirm imports, detectors, outputs, and calibration steps.</p><span class="card-link">Processing guide <b aria-hidden="true">→</b></span></a>
+        <a class="feature-card" href="docs/mixamo-retargeting.html"><span class="card-index">03 / REVIEW THE RESULT</span><span class="feature-icon icon-animate" aria-hidden="true">✧</span><h3>Retarget with the right checks</h3><p>Inspect the source and target rigs, then review the full animation before you export.</p><span class="card-link">Retargeting guide <b aria-hidden="true">→</b></span></a>
       </div>
+      <figure class="section-visual-note"><img src="assets/images/freemocap-tracking.png" alt="Placeholder illustration for motion tracking"><figcaption><strong>Motion tracking · illustration placeholder</strong><span>Review the tracked movement before export; this graphic is not a FreeMoCap screenshot.</span></figcaption></figure>
     </section>
 
-    <section class="section-block quickstart-section">
+    <section class="section-block time-section" data-difficulty="Beginner">
+      <div class="section-heading">
+        <div><div class="eyebrow">PLAN YOUR FIRST SESSION</div><h2>Estimated time, step by step.</h2></div>
+        <p>Timings are practical estimates; processing time depends on your computer and footage.</p>
+      </div>
+      <div class="time-grid">
+        <a class="time-card" href="docs/ffmpeg-setup.html"><span>FFmpeg setup</span><strong>5 <small>minutes</small></strong><span class="difficulty-label difficulty-beginner">Beginner</span></a>
+        <a class="time-card" href="docs/video-conversion.html"><span>Video conversion</span><strong>1 <small>minute</small></strong><span class="difficulty-label difficulty-beginner">Beginner</span></a>
+        <a class="time-card" href="docs/calibration.html"><span>Calibration</span><strong>10 <small>minutes</small></strong><span class="difficulty-label difficulty-intermediate">Intermediate</span></a>
+        <a class="time-card" href="docs/freemocap-processing.html"><span>Processing</span><strong>5 <small>minutes</small></strong><span class="difficulty-label difficulty-intermediate">Intermediate</span></a>
+        <a class="time-card" href="docs/mixamo-retargeting.html"><span>Retargeting</span><strong>20 <small>minutes</small></strong><span class="difficulty-label difficulty-advanced">Advanced</span></a>
+      </div>
+      <figure class="section-visual-note"><img src="assets/images/freemocap-import.png" alt="Placeholder illustration for a video import workflow"><figcaption><strong>Processing preview · illustration placeholder</strong><span>Time varies by video length and hardware; verify the result in your installed app.</span></figcaption></figure>
+    </section>
+
+    <section class="section-block quickstart-section" data-difficulty="Beginner">
       <div class="section-heading">
         <div><div class="eyebrow">A CLEAR PATH FORWARD</div><h2>Your first take, in three moves.</h2></div>
         <p>Keep the first session simple. Add calibration and conversion only when your workflow needs them.</p>
@@ -107,45 +138,48 @@
         <a class="quickstart-step" href="docs/blender-export.html" aria-label="Step 3: Bring motion to Blender. Read the export guide."><span class="quickstart-number">03</span><span class="quickstart-copy"><strong>Bring motion to Blender</strong><small>Use a supported export, then inspect before retargeting.</small></span><span class="quickstart-arrow" aria-hidden="true">↗</span></a>
       </div>
       <p class="quickstart-footnote">Multi-camera capture? Read <a href="docs/calibration.html">calibration first</a>. Need another video format? <a href="docs/video-conversion.html">Convert only if necessary</a>.</p>
+      <figure class="section-visual-note"><img src="assets/images/blender-import.png" alt="Placeholder illustration for motion in Blender"><figcaption><strong>Motion in Blender · illustration placeholder</strong><span>Confirm the source motion plays correctly before moving on to retargeting.</span></figcaption></figure>
     </section>
 
-    <section class="section-block checklist-section">
+    <section class="section-block checklist-section" data-difficulty="Beginner">
       <div class="section-heading">
         <div><div class="eyebrow">KEEP YOUR PLACE</div><h2>Setup checklist</h2></div>
         <p>Tick items as you complete them. Progress stays in this browser on this device.</p>
       </div>
       <div class="checklist-card">
-        <div class="checklist-header"><div><strong>Your setup</strong><small>Saved locally · not synced to GitHub</small></div><div class="check-progress"><span data-check-count>0 of 7 complete</span><div class="progress-track"><span data-check-progress></span></div></div></div>
+        <div class="checklist-header"><div><strong>Your setup</strong><small>Saved locally · not synced to GitHub</small></div><div class="check-progress"><span data-check-count>0 of 7 complete</span><div class="progress-summary"><strong data-check-percent>0%</strong><div class="progress-track" role="progressbar" aria-label="Setup progress" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0 of 7 steps complete"><span data-check-progress></span></div></div></div></div>
         <div class="checklist-grid">
-          <label class="check-item"><input type="checkbox" data-check="ffmpeg"><span class="check-box" aria-hidden="true">✓</span><span>FFmpeg installed<small><a href="docs/ffmpeg-setup.html">FFmpeg setup</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="path"><span class="check-box" aria-hidden="true">✓</span><span>FFmpeg added to PATH<small><a href="docs/ffmpeg-setup.html#path">PATH setup</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="converted"><span class="check-box" aria-hidden="true">✓</span><span>Video converted if needed<small><a href="docs/video-conversion.html">Conversion guide</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="imported"><span class="check-box" aria-hidden="true">✓</span><span>Video imported<small><a href="docs/freemocap-processing.html#import">FreeMoCap workflow</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="processed"><span class="check-box" aria-hidden="true">✓</span><span>Motion processed<small><a href="docs/freemocap-processing.html">Processing guide</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="exported"><span class="check-box" aria-hidden="true">✓</span><span>Blender scene or motion exported<small><a href="docs/blender-export.html">Export guide</a></small></span></label>
-          <label class="check-item"><input type="checkbox" data-check="retargeted"><span class="check-box" aria-hidden="true">✓</span><span>Animation retargeted<small><a href="docs/mixamo-retargeting.html">Retargeting guide</a></small></span></label>
+          <div class="check-item"><input id="check-ffmpeg" type="checkbox" data-check="ffmpeg"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-ffmpeg">FFmpeg installed</label><small><a href="docs/ffmpeg-setup.html">FFmpeg setup</a></small></span></div>
+          <div class="check-item"><input id="check-path" type="checkbox" data-check="path"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-path">FFmpeg added to PATH</label><small><a href="docs/ffmpeg-setup.html#path">PATH setup</a></small></span></div>
+          <div class="check-item"><input id="check-converted" type="checkbox" data-check="converted"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-converted">Video converted if needed</label><small><a href="docs/video-conversion.html">Conversion guide</a></small></span></div>
+          <div class="check-item"><input id="check-imported" type="checkbox" data-check="imported"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-imported">Video imported</label><small><a href="docs/freemocap-processing.html#import">FreeMoCap workflow</a></small></span></div>
+          <div class="check-item"><input id="check-processed" type="checkbox" data-check="processed"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-processed">Motion processed</label><small><a href="docs/freemocap-processing.html">Processing guide</a></small></span></div>
+          <div class="check-item"><input id="check-exported" type="checkbox" data-check="exported"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-exported">Blender scene or motion exported</label><small><a href="docs/blender-export.html">Export guide</a></small></span></div>
+          <div class="check-item"><input id="check-retargeted" type="checkbox" data-check="retargeted"><span class="check-box" aria-hidden="true">✓</span><span class="check-item-copy"><label for="check-retargeted">Animation retargeted</label><small><a href="docs/mixamo-retargeting.html">Retargeting guide</a></small></span></div>
         </div>
+        <div class="checklist-completed"><strong>Completed steps</strong><ul data-completed-steps aria-live="polite"><li>Completed steps will appear here.</li></ul></div>
         <div class="checklist-foot"><span>Checklist is optional—use it to track your own session.</span><button type="button" class="text-button" data-reset-checklist>Reset progress</button></div>
       </div>
+      <figure class="section-visual-note"><img src="assets/images/final-animation.png" alt="Placeholder illustration for a completed animation"><figcaption><strong>Finished take · illustration placeholder</strong><span>Use the checklist to track your steps; this artwork is not a captured project result.</span></figcaption></figure>
     </section>
 
-    <section class="section-block screenshot-section">
-      <div class="section-heading"><div><div class="eyebrow">A VISUAL COMPANION</div><h2>See each step take shape.</h2></div><a class="text-link" href="docs/calibration.html">Explore calibration <span>→</span></a></div>
+    <section class="section-block screenshot-section" data-difficulty="Intermediate">
+      <div class="section-heading"><div><div class="eyebrow">A VISUAL COMPANION</div><h2>See each step take shape.</h2></div><a class="text-link" href="docs/results-examples.html">View all results <span>→</span></a></div>
       <div class="screenshot-grid">
-        <a href="assets/images/ffmpeg-install.png"><img src="assets/images/ffmpeg-install.png" alt="Placeholder: FFmpeg installation"><span>FFmpeg installation</span></a>
-        <a href="assets/images/ffmpeg-path.png"><img src="assets/images/ffmpeg-path.png" alt="Placeholder: FFmpeg PATH setup"><span>FFmpeg PATH setup</span></a>
-        <a href="assets/images/calibration-board.png"><img src="assets/images/calibration-board.png" alt="Placeholder: ChArUco calibration board"><span>Calibration board</span></a>
-        <a href="assets/images/calibration-process.png"><img src="assets/images/calibration-process.png" alt="Placeholder: calibration process"><span>Calibration process</span></a>
-        <a href="assets/images/freemocap-import.png"><img src="assets/images/freemocap-import.png" alt="Placeholder: FreeMoCap video import"><span>FreeMoCap import</span></a>
-        <a href="assets/images/freemocap-tracking.png"><img src="assets/images/freemocap-tracking.png" alt="Placeholder: FreeMoCap tracking"><span>FreeMoCap tracking</span></a>
-        <a href="assets/images/blender-import.png"><img src="assets/images/blender-import.png" alt="Placeholder: Blender import"><span>Blender import</span></a>
-        <a href="assets/images/rokoko-retarget.png"><img src="assets/images/rokoko-retarget.png" alt="Placeholder: Rokoko retargeting"><span>Rokoko retarget</span></a>
-        <a href="assets/images/final-animation.png"><img src="assets/images/final-animation.png" alt="Placeholder: final animation"><span>Final animation</span></a>
+        <a href="assets/images/ffmpeg-install.png"><figure><img src="assets/images/ffmpeg-install.png" alt="Placeholder illustration for FFmpeg installation"><figcaption><strong>FFmpeg installation</strong><small>Check the extracted folder before adding its bin directory to PATH.</small></figcaption></figure></a>
+        <a href="assets/images/ffmpeg-path.png"><figure><img src="assets/images/ffmpeg-path.png" alt="Placeholder illustration for FFmpeg PATH setup"><figcaption><strong>FFmpeg on PATH</strong><small>Open a fresh terminal to verify Windows can find the executable.</small></figcaption></figure></a>
+        <a href="assets/images/calibration-board.png?v=2"><figure><img class="calibration-board-image" src="assets/images/calibration-board.png?v=2" alt="User-provided black-and-white ChArUco calibration board with marker patterns"><figcaption><strong>Provided calibration board example</strong><small>Verify its printed dimensions against your FreeMoCap board settings.</small></figcaption></figure></a>
+        <a href="assets/images/calibration-process.png"><figure><img src="assets/images/calibration-process.png" alt="Placeholder illustration for a calibration process"><figcaption><strong>Calibration process</strong><small>Use version-specific steps when multi-camera capture needs calibration.</small></figcaption></figure></a>
+        <a href="assets/images/freemocap-import.png"><figure><img src="assets/images/freemocap-import.png" alt="Placeholder illustration for FreeMoCap video import"><figcaption><strong>FreeMoCap import</strong><small>Start with the original clip when the installed release supports it.</small></figcaption></figure></a>
+        <a href="assets/images/freemocap-tracking.png"><figure><img src="assets/images/freemocap-tracking.png" alt="Placeholder illustration for FreeMoCap tracking"><figcaption><strong>Motion tracking</strong><small>Review the output before you export or retarget movement.</small></figcaption></figure></a>
+        <a href="assets/images/blender-import.png"><figure><img src="assets/images/blender-import.png" alt="Placeholder illustration for motion imported into Blender"><figcaption><strong>Blender skeleton</strong><small>Confirm the source motion plays and the axes look right.</small></figcaption></figure></a>
+        <a href="assets/images/rokoko-retarget.png"><figure><img src="assets/images/rokoko-retarget.png" alt="Placeholder illustration for character retargeting"><figcaption><strong>Character retarget</strong><small>Check bone mapping, rest pose, scale, and tool compatibility.</small></figcaption></figure></a>
+        <a href="assets/images/final-animation.png"><figure><img src="assets/images/final-animation.png" alt="Placeholder illustration for a final animation"><figcaption><strong>Final animation</strong><small>Scrub the full timeline for drift, clipping, and foot sliding.</small></figcaption></figure></a>
       </div>
-      <p class="placeholder-note">Illustration cards are labeled placeholders—not application screenshots. Replace them with verified captures when available.</p>
+      <p class="placeholder-note">Most cards are illustrative placeholders, not application screenshots. The calibration board is a provided reference image; verify its printed dimensions against your FreeMoCap settings.</p>
     </section>
 
-    <section class="section-block trouble-section">
+    <section class="section-block trouble-section" data-difficulty="Intermediate">
       <div class="section-heading">
         <div><div class="eyebrow">WHEN A STEP GETS STUCK</div><h2>Find the right fix, faster.</h2></div>
         <a class="text-link" href="docs/troubleshooting.html">Open troubleshooting <span>→</span></a>
@@ -156,9 +190,10 @@
         <a class="trouble-card" href="docs/troubleshooting.html#calibration" aria-label="Troubleshoot calibration issues"><span class="trouble-mark" aria-hidden="true">03</span><span><strong>Calibration looks off</strong><small>Match the printed board to the version’s settings.</small></span><span class="trouble-arrow" aria-hidden="true">→</span></a>
         <a class="trouble-card" href="docs/troubleshooting.html#retargeting" aria-label="Troubleshoot motion retargeting"><span class="trouble-mark" aria-hidden="true">04</span><span><strong>Retargeting twists</strong><small>Review bone mapping, axes, and rest pose.</small></span><span class="trouble-arrow" aria-hidden="true">→</span></a>
       </div>
+      <figure class="section-visual-note"><img src="assets/images/ffmpeg-path.png" alt="Placeholder illustration for finding FFmpeg on PATH"><figcaption><strong>PATH check · illustration placeholder</strong><span>Check the actual FFmpeg bin folder in a fresh terminal when the command is missing.</span></figcaption></figure>
     </section>
 
-    <section class="section-block faq-section" aria-labelledby="faq-heading">
+    <section class="section-block faq-section" data-difficulty="Beginner" aria-labelledby="faq-heading">
       <div class="section-heading">
         <div><div class="eyebrow">GOOD TO KNOW</div><h2 id="faq-heading">A few common questions.</h2></div>
         <a class="text-link" href="docs/changelog.html">What’s new <span>→</span></a>
@@ -169,10 +204,25 @@
         <details><summary>Will every FreeMoCap release create a Blender scene?</summary><p>Supported detectors, exporters, filenames, and formats change between releases. Confirm the output supported by your installed version, then inspect the exported motion before retargeting.</p></details>
         <details><summary>Can I retarget the motion to any Mixamo character automatically?</summary><p>Retargeting depends on compatible source and target skeletons, bone mapping, rest pose, scale, and axes. Use a tool that documents support for your Blender version and both rigs.</p></details>
       </div>
+      <figure class="section-visual-note"><img src="assets/images/calibration-board.png" alt="Placeholder illustration for a ChArUco calibration board"><figcaption><strong>Calibration example · illustration placeholder</strong><span>Calibration depends on camera setup and workflow; it is not required for every single-camera test.</span></figcaption></figure>
+    </section>
+
+    <section class="section-block community-section" data-difficulty="Beginner" aria-labelledby="community-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">BUILT IN THE OPEN</div><h2 id="community-heading">A community project, made to share.</h2></div>
+        <p>Use the guides, improve them, and help keep the workflow accurate for the next creator.</p>
+      </div>
+      <div class="community-grid">
+        <a class="community-card" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span class="community-icon" aria-hidden="true">↗</span><span><strong>Explore the repository</strong><small>Open source guide and issue tracker</small></span></a>
+        <a class="community-card" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer"><span class="community-icon" aria-hidden="true">✎</span><span><strong>Contribute a correction</strong><small>Read the contribution guide</small></span></a>
+        <a class="community-card" href="LICENSE"><span class="community-icon" aria-hidden="true">©</span><span><strong>Reuse with attribution</strong><small>Guide content is CC BY 4.0</small></span></a>
+        <a class="community-card" href="docs/results-examples.html"><span class="community-icon" aria-hidden="true">◎</span><span><strong>Preview the workflow</strong><small>See example outputs at every stage</small></span></a>
+      </div>
+      <figure class="section-visual-note"><img src="assets/images/final-animation.png" alt="Placeholder illustration for the final character animation stage"><figcaption><strong>Share the final stage · illustration placeholder</strong><span>Contributions should use verified, permission-cleared screenshots with version details.</span></figcaption></figure>
     </section>
 
     <section class="closing-banner"><div class="banner-orb"></div><div><div class="eyebrow">START WITH THE FOOTAGE YOU HAVE</div><h2>Ready to make your first take?</h2><p>Begin with FFmpeg setup, then follow the capture and processing guides in order.</p></div><a class="button button-primary" href="docs/ffmpeg-setup.html">Open the guide <span>→</span></a></section>
-    <footer class="site-footer"><span>Created by <strong>Andrew's 3D Factory</strong></span><span><a href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow">GitHub repository</a><a href="LICENSE">CC BY 4.0 license</a></span></footer>
+    <footer class="site-footer"><span>Created by <strong>Andrew's 3D Factory</strong> · Open-source community guide</span><span><a href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow">GitHub repository</a><a href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow/blob/main/CONTRIBUTING.md">Contribute</a><a href="LICENSE">CC BY 4.0 license</a></span></footer>
   </main>
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
 </body>

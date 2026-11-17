@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Avoid seven common recording, setup, and calibration mistakes in an iPhone-to-Blender motion capture workflow.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Common Mistakes · FreeMoCap Motion Workflow"><meta property="og:description" content="Avoid seven common recording, setup, and calibration mistakes in an iPhone-to-Blender motion capture workflow.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/common-mistakes.html">
+  <meta property="og:image" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:secure_url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/common-mistakes.html">
+  <title>Common Mistakes · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=11" defer></script>
+</head>
+<body data-page="common-mistakes">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar"><button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a><div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div><a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content" tabindex="-1"><div class="doc-layout">
+    <article class="doc-article">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Project resources</span><span>/</span><span>Common mistakes</span></div>
+      <div class="doc-label">PROJECT RESOURCES</div><h1 class="doc-title">Common Mistakes</h1>
+      <p class="doc-description">Small setup and capture choices can save a lot of rework. Use these checks when a take or import does not behave as expected.</p>
+      <div class="doc-meta"><span class="doc-meta-dot"></span><span>7 checks</span><span>·</span><span>Beginner friendly</span></div>
+      <div class="doc-content" data-doc-content>
+        <div class="doc-note"><p><strong>Software changes between releases.</strong> Treat these as practical checks, not strict requirements for every FreeMoCap version or capture setup.</p></div>
+        <h2 id="ffmpeg-not-in-path">FFmpeg is not in PATH</h2>
+        <p>Installing FFmpeg does not automatically make the <code>ffmpeg</code> command available. Add the directory that contains <code>ffmpeg.exe</code> (commonly <code>C:\ffmpeg\bin</code>) to your user PATH, then close and reopen Command Prompt. Verify with <code>where ffmpeg</code>.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/ffmpeg-path.png" alt="Illustrative placeholder for checking FFmpeg in Windows PATH"><figcaption><strong>Illustration placeholder</strong><span>Check the actual folder containing ffmpeg.exe, then verify from a new terminal.</span></figcaption></figure>
+        <p>Follow the <a href="ffmpeg-setup.html#path">FFmpeg PATH setup guide</a> if the command is still missing.</p>
+
+        <h2 id="direct-3gp-import">Importing .3GP directly without checking support</h2>
+        <p>Do not assume every installed release can read every phone recording. Try the original video first; if import fails or the app documents a required format, convert a copy to MP4 and keep the original unchanged.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/freemocap-import.png" alt="Illustrative placeholder for choosing a video to import"><figcaption><strong>Illustration placeholder</strong><span>Keep the original recording and use a converted copy only when needed.</span></figcaption></figure>
+        <p>See <a href="video-conversion.html">video conversion</a> for a sample FFmpeg command and format checks.</p>
+
+        <h2 id="low-resolution">Recording at very low resolution</h2>
+        <p>Low-resolution footage can make body landmarks difficult to distinguish, especially when the subject is far from the camera. Frame the full body while keeping it large enough to see, and use the highest practical recording quality for your device and lighting.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Illustrative placeholder for framing a subject in a phone recording"><figcaption><strong>Illustration placeholder</strong><span>Review framing on a larger screen before processing the entire clip.</span></figcaption></figure>
+        <p>There is no single resolution threshold that guarantees good tracking; clear, well-framed footage matters too.</p>
+
+        <h2 id="low-frame-rate">Using a 10 FPS recording</h2>
+        <p>A 10 FPS clip can miss fast movement and look choppy after reconstruction. Prefer a stable, higher frame rate supported by your phone and workflow—30 FPS is a practical starting point—then confirm how your installed tools interpret timestamps and frame rate.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Illustrative placeholder for recording motion at a consistent frame rate"><figcaption><strong>Illustration placeholder</strong><span>Check the clip’s properties; do not infer FPS from how smooth a preview looks.</span></figcaption></figure>
+
+        <h2 id="missing-calibration">Skipping calibration when the workflow requires it</h2>
+        <p>Multi-camera reconstruction or a specific world coordinate setup may depend on calibration. Follow the guidance for your camera arrangement and installed release. Calibration is not required for every single-camera test, and a mismatched board setup can make results worse.</p>
+        <figure class="doc-figure"><img class="doc-screenshot calibration-board-image" src="../assets/images/calibration-board.png?v=2" alt="User-provided black-and-white ChArUco calibration board with marker patterns"><figcaption><strong>Provided calibration board example</strong><span>Verify its printed dimensions and pattern against the settings in your FreeMoCap version.</span></figcaption></figure>
+        <p>Read the <a href="calibration.html">calibration guide</a> before printing or recording a board.</p>
+
+        <h2 id="body-leaves-frame">Letting the body leave the frame</h2>
+        <p>When hands, feet, or the head move outside the image, the tracker has no pixels to recover. Leave room around the entire movement, test the widest pose, and keep the camera fixed for the take.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Illustrative placeholder for keeping the full body in a camera frame"><figcaption><strong>Illustration placeholder</strong><span>Check the subject remains visible through the widest reach and lowest pose.</span></figcaption></figure>
+        <p>Use the <a href="recording-motion.html">recording guide</a> for framing and camera placement tips.</p>
+
+        <h2 id="bad-lighting">Recording in poor or changing light</h2>
+        <p>Dim rooms, strong backlight, flicker, and hard shadows can reduce contrast or blur the subject. Use even light, avoid bright windows directly behind the performer, and keep exposure consistent where your camera allows it.</p>
+        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/recording-motion.png" alt="Illustrative placeholder for evenly lit motion capture recording"><figcaption><strong>Illustration placeholder</strong><span>Even illumination and a clear silhouette help make the motion easier to track.</span></figcaption></figure>
+
+        <div class="doc-note note-warn"><p><strong>Other visuals are illustrative placeholders, not application screenshots.</strong> Confirm specific settings and supported formats in the documentation for your software versions.</p></div>
+        <h2 id="next">Next step</h2><p>Return to the <a href="../index.html">workflow overview</a>, or browse <a href="troubleshooting.html">troubleshooting</a> for symptoms and targeted fixes.</p>
+      </div>
+      <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav><footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+    </article>
+    <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+  </div></main><button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>

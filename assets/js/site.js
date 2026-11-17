@@ -3,15 +3,17 @@
 
   const pages = [
     { id: "home", title: "Home", href: "index.html", description: "Overview, workflow map, and setup checklist.", number: "⌂", group: "GETTING STARTED" },
-    { id: "ffmpeg-setup", title: "FFmpeg setup", href: "docs/ffmpeg-setup.html", description: "Install FFmpeg on Windows and add it to PATH.", number: "01", group: "PREPARE YOUR FOOTAGE" },
-    { id: "video-conversion", title: "Video conversion", href: "docs/video-conversion.html", description: "Convert a 3GP file to an MP4 copy when required.", number: "02", group: "PREPARE YOUR FOOTAGE" },
-    { id: "calibration", title: "Calibration", href: "docs/calibration.html", description: "Prepare ChArUco calibration footage and ground plane.", number: "03", group: "CAPTURE & PROCESS" },
-    { id: "recording-motion", title: "Recording motion", href: "docs/recording-motion.html", description: "Capture clean iPhone motion video.", number: "04", group: "CAPTURE & PROCESS" },
-    { id: "freemocap-processing", title: "FreeMoCap processing", href: "docs/freemocap-processing.html", description: "Import footage, run tracking, and review outputs.", number: "05", group: "CAPTURE & PROCESS" },
-    { id: "blender-export", title: "Blender export", href: "docs/blender-export.html", description: "Create and inspect supported Blender motion data.", number: "06", group: "BLENDER & RETARGETING" },
-    { id: "mixamo-retargeting", title: "Mixamo retargeting", href: "docs/mixamo-retargeting.html", description: "Map motion onto a Mixamo-rigged character.", number: "07", group: "BLENDER & RETARGETING" },
-    { id: "changelog", title: "Changelog", href: "docs/changelog.html", description: "See recent improvements to this community guide.", number: "↗", group: "HELP" },
-    { id: "troubleshooting", title: "Troubleshooting", href: "docs/troubleshooting.html", description: "Resolve common setup, capture, and export issues.", number: "?", group: "HELP" }
+    { id: "ffmpeg-setup", title: "FFmpeg setup", href: "docs/ffmpeg-setup.html", description: "Install FFmpeg on Windows and add it to PATH.", number: "01", group: "PREPARE YOUR FOOTAGE", difficulty: "Beginner", duration: "5 min" },
+    { id: "video-conversion", title: "Video conversion", href: "docs/video-conversion.html", description: "Convert a 3GP file to an MP4 copy when required.", number: "02", group: "PREPARE YOUR FOOTAGE", difficulty: "Beginner", duration: "1 min" },
+    { id: "calibration", title: "Calibration", href: "docs/calibration.html", description: "Prepare ChArUco calibration footage and ground plane.", number: "03", group: "CAPTURE & PROCESS", difficulty: "Intermediate", duration: "10 min" },
+    { id: "recording-motion", title: "Recording motion", href: "docs/recording-motion.html", description: "Capture clean iPhone motion video.", number: "04", group: "CAPTURE & PROCESS", difficulty: "Beginner", duration: "5 min" },
+    { id: "freemocap-processing", title: "FreeMoCap processing", href: "docs/freemocap-processing.html", description: "Import footage, run tracking, and review outputs.", number: "05", group: "CAPTURE & PROCESS", difficulty: "Intermediate", duration: "5 min" },
+    { id: "blender-export", title: "Blender export", href: "docs/blender-export.html", description: "Create and inspect supported Blender motion data.", number: "06", group: "BLENDER & RETARGETING", difficulty: "Intermediate", duration: "5 min" },
+    { id: "mixamo-retargeting", title: "Mixamo retargeting", href: "docs/mixamo-retargeting.html", description: "Map motion onto a Mixamo-rigged character.", number: "07", group: "BLENDER & RETARGETING", difficulty: "Advanced", duration: "20 min" },
+    { id: "results-examples", title: "Results & Examples", href: "docs/results-examples.html", description: "Preview each stage from source video to final animation.", number: "08", group: "PROJECT RESOURCES", difficulty: "Intermediate", duration: "5 min" },
+    { id: "common-mistakes", title: "Common Mistakes", href: "docs/common-mistakes.html", description: "Avoid the setup and capture mistakes that derail a first take.", number: "!", group: "PROJECT RESOURCES", difficulty: "Beginner", duration: "8 min" },
+    { id: "changelog", title: "Changelog", href: "docs/changelog.html", description: "See recent improvements to this community guide.", number: "↗", group: "HELP", difficulty: "Beginner" },
+    { id: "troubleshooting", title: "Troubleshooting", href: "docs/troubleshooting.html", description: "Resolve common setup, capture, and export issues.", number: "?", group: "HELP", difficulty: "Intermediate" }
   ];
 
   const pathname = window.location.pathname.replace(/\\/g, "/");
@@ -60,6 +62,17 @@
     const githubLink = topbar.querySelector(".topbar-github");
     topbar.insertBefore(themeToggle, githubLink);
   }
+
+  document.querySelectorAll("[data-difficulty]").forEach((section) => {
+    const heading = section.querySelector(".section-heading h2");
+    if (!heading) return;
+    const label = document.createElement("span");
+    const level = section.dataset.difficulty;
+    label.className = "difficulty-label difficulty-" + level.toLowerCase();
+    label.textContent = level;
+    label.setAttribute("aria-label", "Difficulty: " + level);
+    heading.after(document.createTextNode(" "), label);
+  });
 
   document.querySelectorAll("[data-sidebar-nav]").forEach((nav) => {
     let lastGroup = "";
@@ -226,13 +239,40 @@
   if (checkboxes.length) {
     const key = "freemocap-workflow-checklist-v1";
     let saved = {};
-    try { saved = JSON.parse(window.localStorage.getItem(key) || "{}"); } catch (error) { saved = {}; }
+    try {
+      const stored = JSON.parse(window.localStorage.getItem(key) || "{}");
+      if (stored && typeof stored === "object" && !Array.isArray(stored)) saved = stored;
+    } catch (error) { saved = {}; }
     const updateChecklist = () => {
       const completed = checkboxes.filter((input) => input.checked).length;
       const count = document.querySelector("[data-check-count]");
       const progress = document.querySelector("[data-check-progress]");
+      const percent = document.querySelector("[data-check-percent]");
+      const track = document.querySelector(".progress-track");
+      const completedSteps = document.querySelector("[data-completed-steps]");
       if (count) count.textContent = completed + " of " + checkboxes.length + " complete";
-      if (progress) progress.style.width = (completed / checkboxes.length * 100) + "%";
+      const completion = Math.round(completed / checkboxes.length * 100);
+      if (percent) percent.textContent = completion + "%";
+      if (progress) progress.style.width = completion + "%";
+      if (track) {
+        track.setAttribute("aria-valuenow", String(completed));
+        track.setAttribute("aria-valuetext", completed + " of " + checkboxes.length + " steps complete");
+      }
+      if (completedSteps) {
+        completedSteps.replaceChildren();
+        const doneItems = checkboxes.filter((input) => input.checked);
+        if (doneItems.length === 0) {
+          const item = document.createElement("li");
+          item.textContent = "Completed steps will appear here.";
+          completedSteps.appendChild(item);
+        } else {
+          doneItems.forEach((input) => {
+            const item = document.createElement("li");
+            item.textContent = input.labels[0].textContent.trim();
+            completedSteps.appendChild(item);
+          });
+        }
+      }
     };
     checkboxes.forEach((input) => {
       input.checked = saved[input.dataset.check] === true;
@@ -258,20 +298,20 @@
     const button = document.createElement("button");
     button.className = "copy-button";
     button.type = "button";
-    button.textContent = "Copy";
-    button.setAttribute("aria-label", "Copy code to clipboard");
+    button.textContent = "Copy Command";
+    button.setAttribute("aria-label", "Copy command or code to clipboard");
     button.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(code.innerText);
         button.textContent = "Copied";
-        window.setTimeout(() => { button.textContent = "Copy"; }, 1500);
+        window.setTimeout(() => { button.textContent = "Copy Command"; }, 1500);
       } catch (error) {
         button.textContent = "Select code";
         const range = document.createRange();
         range.selectNodeContents(code);
         window.getSelection()?.removeAllRanges();
         window.getSelection()?.addRange(range);
-        window.setTimeout(() => { button.textContent = "Copy"; }, 1800);
+        window.setTimeout(() => { button.textContent = "Copy Command"; }, 1800);
       }
     });
     pre.appendChild(button);
@@ -281,6 +321,18 @@
   if (docContent) {
     const toc = document.querySelector("[data-toc]");
     const headings = [...docContent.querySelectorAll("h2, h3")];
+    const currentPage = pages.find((page) => page.id === currentId);
+    const sectionLevels = {
+      troubleshooting: { blender: "Advanced", retargeting: "Advanced", calibration: "Intermediate", tracking: "Intermediate", import: "Intermediate" },
+      "common-mistakes": {
+        "ffmpeg-not-in-path": "Beginner", "direct-3gp-import": "Beginner", "low-resolution": "Intermediate",
+        "low-frame-rate": "Intermediate", "missing-calibration": "Intermediate", "body-leaves-frame": "Beginner", "bad-lighting": "Beginner"
+      },
+      "results-examples": {
+        "raw-video": "Beginner", tracking: "Intermediate", "blender-skeleton": "Intermediate",
+        "retargeted-character": "Advanced", "final-animation": "Advanced"
+      }
+    };
     headings.forEach((heading, index) => {
       if (!heading.id) heading.id = heading.textContent.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-");
       if (toc) {
@@ -290,6 +342,14 @@
         link.dataset.tocLink = heading.id;
         if (heading.tagName === "H3") link.classList.add("toc-nested");
         toc.appendChild(link);
+      }
+      const level = heading.dataset.difficulty || (sectionLevels[currentId] && sectionLevels[currentId][heading.id]) || (currentPage && currentPage.difficulty);
+      if (level) {
+        const badge = document.createElement("span");
+        badge.className = "difficulty-label difficulty-" + level.toLowerCase();
+        badge.textContent = level;
+        badge.setAttribute("aria-label", "Difficulty: " + level);
+        heading.append(document.createTextNode(" "), badge);
       }
     });
     if (toc && headings.length) {
@@ -330,12 +390,12 @@
   }
 
   const revealItems = [...document.querySelectorAll(
-    ".section-block, .feature-card, .quickstart-step, .checklist-card, .trouble-card, .closing-banner, .doc-content h2, .doc-content h3"
+    ".section-block, .feature-card, .quickstart-step, .workflow-card, .time-card, .screenshot-grid a, .section-visual-note, .community-card, .checklist-card, .trouble-card, .closing-banner, .doc-content h2, .doc-content h3"
   )];
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealItems.forEach((item, index) => {
       item.classList.add("js-reveal");
-      if (item.classList.contains("feature-card") || item.classList.contains("quickstart-step") || item.classList.contains("trouble-card")) {
+      if (item.classList.contains("feature-card") || item.classList.contains("quickstart-step") || item.classList.contains("workflow-card") || item.classList.contains("time-card") || item.classList.contains("screenshot-grid") || item.classList.contains("community-card") || item.classList.contains("trouble-card")) {
         item.dataset.revealDelay = String(index % 4);
       }
     });
