@@ -3,6 +3,7 @@
 
   const pages = [
     { id: "home", title: "Home", href: "index.html", description: "Overview, workflow map, and setup checklist.", number: "⌂", group: "GETTING STARTED" },
+    { id: "why-i-built-this-guide", title: "Why I Built This Guide", href: "docs/why-i-built-this-guide.html", description: "The personal story behind this beginner-friendly end-to-end workflow guide.", number: "✦", group: "GETTING STARTED" },
     { id: "ffmpeg-setup", title: "FFmpeg setup", href: "docs/ffmpeg-setup.html", description: "Install FFmpeg on Windows and add it to PATH.", number: "01", group: "PREPARE YOUR FOOTAGE", difficulty: "Beginner", duration: "5 min" },
     { id: "video-conversion", title: "Video conversion", href: "docs/video-conversion.html", description: "Convert a 3GP file to an MP4 copy when required.", number: "02", group: "PREPARE YOUR FOOTAGE", difficulty: "Beginner", duration: "1 min" },
     { id: "calibration", title: "Calibration", href: "docs/calibration.html", description: "Prepare ChArUco calibration footage and ground plane.", number: "03", group: "CAPTURE & PROCESS", difficulty: "Intermediate", duration: "10 min" },

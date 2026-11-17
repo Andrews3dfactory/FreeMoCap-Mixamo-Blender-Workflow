@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The personal story behind a beginner-friendly guide connecting iPhone recording, FreeMoCap, Blender, and Mixamo into one workflow.">
+  <meta name="theme-color" content="#0a0e14"><meta property="og:type" content="article">
+  <meta property="og:title" content="Why I Built This Guide · FreeMoCap Motion Workflow">
+  <meta property="og:description" content="The guide I wish existed when I started: one practical path from iPhone recording to a retargeted Blender animation.">
+  <meta property="og:url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/why-i-built-this-guide.html">
+  <meta property="og:image" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png">
+  <meta property="og:image:secure_url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png">
+  <meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
+  <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/why-i-built-this-guide.html">
+  <title>Why I Built This Guide · FreeMoCap Motion Workflow</title>
+  <link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css?v=13"><script src="../assets/js/site.js?v=12" defer></script>
+</head>
+<body data-page="why-i-built-this-guide">
+  <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <header class="topbar">
+    <button class="icon-button mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-sidebar" data-menu-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="../index.html" aria-label="FreeMoCap workflow home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Motion workflow<span class="brand-sub">FIELD GUIDE / WINDOWS</span></span></a>
+    <div class="topbar-search"><label class="sr-only" for="site-search">Search the guide</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="site-search" type="search" placeholder="Search the guide…" autocomplete="off" aria-controls="search-results" aria-expanded="false"><kbd>Ctrl K</kbd><div class="search-results" id="search-results" role="listbox" aria-label="Guide pages"></div></div>
+    <a class="topbar-github" href="https://github.com/Andrews3dfactory/FreeMoCap-Mixamo-Blender-Workflow" target="_blank" rel="noreferrer"><span>GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+  </header>
+  <aside class="sidebar" id="site-sidebar" aria-label="Documentation navigation"><div class="sidebar-inner"><nav class="sidebar-nav" data-sidebar-nav></nav><div class="sidebar-rule"></div><a class="sidebar-callout" href="troubleshooting.html"><span class="callout-icon">?</span><span><strong>Need a hand?</strong><small>Browse troubleshooting</small></span><span class="callout-arrow">↗</span></a><p class="sidebar-version">A community guide · Software interfaces vary by release.</p></div></aside><div class="sidebar-scrim" data-menu-close></div>
+  <main class="main-content" id="main-content" tabindex="-1">
+    <div class="doc-layout">
+      <article class="doc-article story-article">
+        <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Why I Built This Guide</span></div>
+        <header class="story-hero">
+          <div class="story-hero-copy">
+            <div class="doc-label">THE STORY BEHIND THE GUIDE</div>
+            <h1 class="doc-title">Why I Built This Guide</h1>
+            <p class="story-hero-subtitle">The guide I wish existed when I started.</p>
+            <p class="story-hero-intro">I wanted to use an iPhone, FreeMoCap, Blender, and Mixamo to create motion-captured animations. I expected the hardest part to be animation. It wasn't. The hardest part was getting everything working together.</p>
+          </div>
+          <div class="story-hero-art" aria-hidden="true">
+            <div class="story-source-cloud">
+              <span class="story-source-card"><small>VIDEO</small><strong>YouTube</strong></span>
+              <span class="story-source-card"><small>COMMUNITY</small><strong>GitHub</strong></span>
+              <span class="story-source-card"><small>REFERENCE</small><strong>Docs</strong></span>
+              <span class="story-source-card"><small>QUESTIONS</small><strong>Forums</strong></span>
+              <span class="story-source-card"><small>THREADS</small><strong>Reddit</strong></span>
+              <span class="story-source-card"><small>FIXES</small><strong>Troubleshooting</strong></span>
+            </div>
+            <div class="story-visual-core"><span aria-hidden="true">↓</span><strong>One connected workflow</strong></div>
+          </div>
+        </header>
+        <div class="doc-content story-content" data-doc-content>
+          <ol class="story-timeline" aria-label="How this guide came to be">
+            <li class="story-timeline-item">
+              <span class="story-timeline-marker" aria-hidden="true">01</span>
+              <div class="story-beat">
+                <p class="story-kicker">THE IDEA</p>
+                <h2 id="the-idea">I wanted to make motion-captured animations</h2>
+                <p>I wanted to record motion on an iPhone, process it with FreeMoCap, bring it into Blender, and retarget it onto a Mixamo character. I thought the most difficult part would be the animation itself.</p>
+                <p>It wasn't. The hardest part was getting each tool, setting, and file to work with the next one.</p>
+              </div>
+            </li>
+            <li class="story-timeline-item">
+              <span class="story-timeline-marker" aria-hidden="true">02</span>
+              <div class="story-beat">
+                <p class="story-kicker">THE SETUP</p>
+                <h2 id="hardest-part">The small setup problems kept adding up</h2>
+                <p>I ran into FFmpeg not being recognized, PATH issues, unsupported video formats, import failures, and calibration steps I didn't yet understand. I also had to work out how each stage connected: what started in the phone video, what FreeMoCap produced, and how that motion could reach a Blender character.</p>
+              </div>
+            </li>
+            <li class="story-timeline-item">
+              <span class="story-timeline-marker" aria-hidden="true">03</span>
+              <div class="story-beat">
+                <p class="story-kicker">THE SEARCH</p>
+                <h2 id="scattered-information">The information existed, but it was scattered</h2>
+                <p>I spent hours moving between YouTube videos, GitHub discussions, documentation pages, forum posts, Reddit threads, and troubleshooting guides. One source might explain FFmpeg, another FreeMoCap, another Mixamo, and a video might cover Blender retargeting. When something went wrong, I could end up with five tabs open just to solve one problem.</p>
+              </div>
+            </li>
+          </ol>
+
+          <blockquote class="story-quote"><p>“I wish there was one guide that showed the entire workflow from start to finish.”</p></blockquote>
+          <p class="story-punchline">So I built it.</p>
+          <p>This website is the guide I wished existed when I started: one place to follow the whole process, understand how the steps fit together, and find a next thing to try when something goes wrong.</p>
+
+          <section class="story-workflow-section" aria-labelledby="story-workflow-title">
+            <h2 id="story-workflow-title">One connected workflow</h2>
+            <p>The point is not to make every tool feel simple on its own. It is to show how the pieces connect, from the first recording to the final animation.</p>
+            <ol class="story-workflow">
+              <li><a class="story-workflow-step" href="recording-motion.html"><span class="story-workflow-number" aria-hidden="true">01</span><span>iPhone Recording</span></a></li>
+              <li><a class="story-workflow-step" href="video-conversion.html"><span class="story-workflow-number" aria-hidden="true">02</span><span>FFmpeg Conversion</span></a></li>
+              <li><a class="story-workflow-step" href="freemocap-processing.html"><span class="story-workflow-number" aria-hidden="true">03</span><span>FreeMoCap Setup</span></a></li>
+              <li><a class="story-workflow-step" href="calibration.html"><span class="story-workflow-number" aria-hidden="true">04</span><span>Calibration</span></a></li>
+              <li><a class="story-workflow-step" href="freemocap-processing.html"><span class="story-workflow-number" aria-hidden="true">05</span><span>Motion Processing</span></a></li>
+              <li><a class="story-workflow-step" href="blender-export.html"><span class="story-workflow-number" aria-hidden="true">06</span><span>Blender Import</span></a></li>
+              <li><a class="story-workflow-step" href="mixamo-retargeting.html"><span class="story-workflow-number" aria-hidden="true">07</span><span>Mixamo Retargeting</span></a></li>
+              <li><a class="story-workflow-step" href="results-examples.html#final-animation"><span class="story-workflow-number" aria-hidden="true">08</span><span>Final Animation</span></a></li>
+            </ol>
+            <p>Everything in this guide comes from working through the process, making mistakes, troubleshooting problems, and writing down what I learned along the way.</p>
+          </section>
+
+          <section class="story-mistakes-section" aria-labelledby="story-mistakes-title">
+            <h2 id="story-mistakes-title">Mistakes I Made So You Don't Have To</h2>
+            <p>These are some of the snags I wish I had known to check sooner:</p>
+            <ul class="story-mistake-list">
+              <li><a href="ffmpeg-setup.html#path">FFmpeg not on PATH</a></li>
+              <li><a href="video-conversion.html">Unsupported video formats</a></li>
+              <li><a href="common-mistakes.html#low-resolution">Using extremely low-resolution video</a></li>
+              <li><a href="troubleshooting.html#import">Import failures</a></li>
+              <li><a href="calibration.html">Calibration confusion</a></li>
+            </ul>
+          </section>
+
+          <section class="story-docs-section" aria-labelledby="story-docs-title">
+            <h2 id="story-docs-title">A companion to the official documentation</h2>
+            <p>This site is not meant to replace the excellent FreeMoCap, Blender, Mixamo, or FFmpeg documentation. Those resources remain the official source for current details.</p>
+            <p>Instead, this guide brings the whole workflow together in one place, so a beginner can see where a step fits and where to go next.</p>
+          </section>
+
+          <section class="story-closing" aria-labelledby="story-closing-title">
+            <h2 id="story-closing-title">If This Guide Saves You Time</h2>
+            <p>That is why I put the pieces together. Happy animating.</p>
+            <blockquote class="story-quote story-quote-closing"><p>“If this guide saves you even a fraction of the time I spent piecing everything together, then it has done its job.”</p><footer>— Andrew's 3D Factory</footer></blockquote>
+          </section>
+        </div>
+        <nav class="doc-pager" data-doc-pager aria-label="Page navigation"></nav>
+        <footer class="doc-footer"><span>Created by Andrew's 3D Factory</span><a href="../LICENSE">CC BY 4.0 license</a></footer>
+      </article>
+      <aside class="doc-aside" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav class="toc-nav" data-toc></nav></aside>
+    </div>
+  </main>
+  <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>↑</button>
+</body>
+</html>
