@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/ffmpeg-setup.html">
   <title>FFmpeg Setup · FreeMoCap Motion Workflow</title>
   <link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=11" defer></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=12"><script src="../assets/js/site.js?v=11" defer></script>
 </head>
 <body data-page="ffmpeg-setup">
   <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -43,7 +43,7 @@
           <p>Verify that both executables exist in the extracted <code>bin</code> folder:</p>
           <pre><code>C:\ffmpeg\bin\ffmpeg.exe
 C:\ffmpeg\bin\ffprobe.exe</code></pre>
-          <img class="doc-screenshot" src="../assets/images/ffmpeg-install.png" alt="Placeholder: FFmpeg installation folder">
+          <figure class="doc-figure"><img class="doc-screenshot ffmpeg-screenshot" src="../assets/images/ffmpeg-install.png?v=2" alt="Windows File Explorer showing ffmpeg.exe, ffplay.exe, and ffprobe.exe in the extracted FFmpeg bin folder"><figcaption><strong>FFmpeg executables in the bin folder</strong><span>Confirm the extracted folder contains <code>ffmpeg.exe</code> and <code>ffprobe.exe</code> before adding it to PATH.</span></figcaption></figure>
           <h2 id="path">Add FFmpeg to PATH</h2>
           <p>PATH tells Windows which folders to search when a command is entered by name.</p>
           <ol>
@@ -53,7 +53,7 @@ C:\ffmpeg\bin\ffprobe.exe</code></pre>
             <li>Choose <strong>New</strong> and enter the directory containing <code>ffmpeg.exe</code>, for example:</li>
           </ol>
           <pre><code>C:\ffmpeg\bin</code></pre>
-          <img class="doc-screenshot" src="../assets/images/ffmpeg-path.png" alt="Placeholder: FFmpeg folder added to Windows PATH">
+          <figure class="doc-figure"><img class="doc-screenshot ffmpeg-screenshot" src="../assets/images/ffmpeg-path.png?v=2" alt="Windows Environment Variables editor showing C:\ffmpeg\bin in the user PATH; personal paths are redacted"><figcaption><strong>Add FFmpeg to the user PATH</strong><span>Use the folder containing <code>ffmpeg.exe</code>; personal environment values in this screenshot are redacted.</span></figcaption></figure>
           <ol start="5"><li>Confirm each dialog. Close and reopen Command Prompt or PowerShell so the new PATH is loaded.</li></ol>
           <h2 id="verify">Verify the installation</h2>
           <p>Open Command Prompt and run:</p>

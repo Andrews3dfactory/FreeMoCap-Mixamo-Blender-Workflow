@@ -1,12 +1,12 @@
-# Documentation image placeholders
+# Documentation images
 
-Most PNGs in this folder are generated, clearly labeled placeholders—not screenshots of real application interfaces. `calibration-board.png` is a user-provided board reference; verify its printed dimensions against your FreeMoCap settings. Replace placeholders only with current, verified screenshots. Remove private names, paths, account details, and recordings before publishing.
+Most PNGs in this folder are generated, clearly labeled placeholders—not screenshots of real application interfaces. The FFmpeg installation, PATH, and conversion images are user-provided Windows screenshots; personal environment values are redacted from the PATH example. `calibration-board.png` is a user-provided board reference; verify its printed dimensions against your FreeMoCap settings. Remove private names, paths, account details, and recordings before publishing screenshots.
 
 | File | Intended image |
 |---|---|
-| `ffmpeg-install.png` | FFmpeg Windows installation folder |
-| `ffmpeg-path.png` | FFmpeg folder added to Windows PATH |
-| `convert-video.png` | FFmpeg video-conversion command |
+| `ffmpeg-install.png` | User-provided Windows Explorer view of the FFmpeg `bin` folder |
+| `ffmpeg-path.png` | User-provided PATH setup screenshot with personal values redacted |
+| `convert-video.png` | User-provided 3GP-to-MP4 conversion command |
 | `calibration-board.png` | User-provided ChArUco calibration board reference |
 | `calibration-process.png` | FreeMoCap calibration process |
 | `recording-motion.png` | iPhone recording setup |

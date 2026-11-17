@@ -19,7 +19,7 @@
   <title>FreeMoCap + Blender Motion Capture Workflow</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <script src="assets/js/site.js?v=11" defer></script>
 </head>
 <body>
@@ -166,8 +166,8 @@
     <section class="section-block screenshot-section" data-difficulty="Intermediate">
       <div class="section-heading"><div><div class="eyebrow">A VISUAL COMPANION</div><h2>See each step take shape.</h2></div><a class="text-link" href="docs/results-examples.html">View all results <span>→</span></a></div>
       <div class="screenshot-grid">
-        <a href="assets/images/ffmpeg-install.png"><figure><img src="assets/images/ffmpeg-install.png" alt="Placeholder illustration for FFmpeg installation"><figcaption><strong>FFmpeg installation</strong><small>Check the extracted folder before adding its bin directory to PATH.</small></figcaption></figure></a>
-        <a href="assets/images/ffmpeg-path.png"><figure><img src="assets/images/ffmpeg-path.png" alt="Placeholder illustration for FFmpeg PATH setup"><figcaption><strong>FFmpeg on PATH</strong><small>Open a fresh terminal to verify Windows can find the executable.</small></figcaption></figure></a>
+        <a href="assets/images/ffmpeg-install.png?v=2"><figure><img class="ffmpeg-screenshot" src="assets/images/ffmpeg-install.png?v=2" alt="Windows File Explorer showing ffmpeg.exe, ffplay.exe, and ffprobe.exe in the extracted FFmpeg bin folder"><figcaption><strong>FFmpeg installation</strong><small>Confirm the executables are in the extracted bin folder before adding it to PATH.</small></figcaption></figure></a>
+        <a href="assets/images/ffmpeg-path.png?v=2"><figure><img class="ffmpeg-screenshot" src="assets/images/ffmpeg-path.png?v=2" alt="Windows Environment Variables editor showing C:\ffmpeg\bin in the user PATH; personal paths are redacted"><figcaption><strong>FFmpeg on PATH</strong><small>Add the bin folder to PATH and reopen the terminal; personal environment values are redacted.</small></figcaption></figure></a>
         <a href="assets/images/calibration-board.png?v=2"><figure><img class="calibration-board-image" src="assets/images/calibration-board.png?v=2" alt="User-provided black-and-white ChArUco calibration board with marker patterns"><figcaption><strong>Provided calibration board example</strong><small>Verify its printed dimensions against your FreeMoCap board settings.</small></figcaption></figure></a>
         <a href="assets/images/calibration-process.png"><figure><img src="assets/images/calibration-process.png" alt="Placeholder illustration for a calibration process"><figcaption><strong>Calibration process</strong><small>Use version-specific steps when multi-camera capture needs calibration.</small></figcaption></figure></a>
         <a href="assets/images/freemocap-import.png"><figure><img src="assets/images/freemocap-import.png" alt="Placeholder illustration for FreeMoCap video import"><figcaption><strong>FreeMoCap import</strong><small>Start with the original clip when the installed release supports it.</small></figcaption></figure></a>
@@ -176,7 +176,7 @@
         <a href="assets/images/rokoko-retarget.png"><figure><img src="assets/images/rokoko-retarget.png" alt="Placeholder illustration for character retargeting"><figcaption><strong>Character retarget</strong><small>Check bone mapping, rest pose, scale, and tool compatibility.</small></figcaption></figure></a>
         <a href="assets/images/final-animation.png"><figure><img src="assets/images/final-animation.png" alt="Placeholder illustration for a final animation"><figcaption><strong>Final animation</strong><small>Scrub the full timeline for drift, clipping, and foot sliding.</small></figcaption></figure></a>
       </div>
-      <p class="placeholder-note">Most cards are illustrative placeholders, not application screenshots. The calibration board is a provided reference image; verify its printed dimensions against your FreeMoCap settings.</p>
+      <p class="placeholder-note">Most gallery cards are illustrative placeholders, not application screenshots. The FFmpeg setup and PATH images, plus the conversion example in its guide, are user-provided screenshots; personal values in the PATH image are redacted. The calibration board is a provided reference image—verify its printed dimensions against your FreeMoCap settings.</p>
     </section>
 
     <section class="section-block trouble-section" data-difficulty="Intermediate">
@@ -190,7 +190,7 @@
         <a class="trouble-card" href="docs/troubleshooting.html#calibration" aria-label="Troubleshoot calibration issues"><span class="trouble-mark" aria-hidden="true">03</span><span><strong>Calibration looks off</strong><small>Match the printed board to the version’s settings.</small></span><span class="trouble-arrow" aria-hidden="true">→</span></a>
         <a class="trouble-card" href="docs/troubleshooting.html#retargeting" aria-label="Troubleshoot motion retargeting"><span class="trouble-mark" aria-hidden="true">04</span><span><strong>Retargeting twists</strong><small>Review bone mapping, axes, and rest pose.</small></span><span class="trouble-arrow" aria-hidden="true">→</span></a>
       </div>
-      <figure class="section-visual-note"><img src="assets/images/ffmpeg-path.png" alt="Placeholder illustration for finding FFmpeg on PATH"><figcaption><strong>PATH check · illustration placeholder</strong><span>Check the actual FFmpeg bin folder in a fresh terminal when the command is missing.</span></figcaption></figure>
+      <figure class="section-visual-note"><img class="ffmpeg-screenshot" src="assets/images/ffmpeg-path.png?v=2" alt="Windows Environment Variables editor with C:\ffmpeg\bin selected in the user PATH; personal paths are redacted"><figcaption><strong>PATH check · Windows screenshot</strong><span>Use the extracted bin folder containing ffmpeg.exe, then open a fresh terminal to verify it.</span></figcaption></figure>
     </section>
 
     <section class="section-block faq-section" data-difficulty="Beginner" aria-labelledby="faq-heading">

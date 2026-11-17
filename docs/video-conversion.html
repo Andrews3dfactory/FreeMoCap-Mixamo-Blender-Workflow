@@ -12,7 +12,7 @@
   <meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
   <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/video-conversion.html">
   <title>Video Conversion · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=11" defer></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=12"><script src="../assets/js/site.js?v=11" defer></script>
 </head>
 <body data-page="video-conversion">
   <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -35,7 +35,7 @@
         <p>First <a href="ffmpeg-setup.html">install FFmpeg and add it to PATH</a>. Open Command Prompt (press <kbd>Windows</kbd> + <kbd>R</kbd>, enter <code>cmd</code>, and press Enter). Replace the sample folder and file names with your own.</p>
         <pre><code>ffmpeg -i "C:\Users\YourName\Downloads\Your-File-Name.3gp" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac "C:\Users\YourName\Downloads\Your-File-Name_FreeMoCap.mp4"</code></pre>
         <p>FFmpeg reads the 3GP input and writes a new H.264 video with AAC audio in an MP4 container. <code>-crf 18</code> is a quality/size setting: a lower CRF usually means higher quality and a larger file. You can use a different CRF to adjust size, but do not treat it as a way to restore source detail.</p>
-        <img class="doc-screenshot" src="../assets/images/convert-video.png" alt="Placeholder: FFmpeg video conversion command">
+        <figure class="doc-figure"><img class="doc-screenshot ffmpeg-screenshot" src="../assets/images/convert-video.png?v=2" alt="Command Prompt showing an FFmpeg command that converts a 3GP recording to an MP4 copy"><figcaption><strong>3GP to MP4 example command</strong><span>Replace the sample input and output paths with your own, and keep the original recording unchanged.</span></figcaption></figure>
         <h2 id="check-result">Check the output</h2>
         <p>After conversion completes, inspect the output with FFmpeg:</p>
         <pre><code>ffmpeg -i "C:\Users\YourName\Downloads\Your-File-Name_FreeMoCap.mp4"</code></pre>

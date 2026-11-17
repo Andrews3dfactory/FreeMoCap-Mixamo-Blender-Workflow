@@ -9,7 +9,7 @@
   <meta property="og:image" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:secure_url" content="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/assets/images/social-card.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FreeMoCap motion-capture workflow: iPhone video to animated Blender character">
   <link rel="canonical" href="https://andrews3dfactory.github.io/FreeMoCap-Mixamo-Blender-Workflow/docs/common-mistakes.html">
   <title>Common Mistakes · FreeMoCap Motion Workflow</title><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/site.css?v=11"><script src="../assets/js/site.js?v=11" defer></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=12"><script src="../assets/js/site.js?v=11" defer></script>
 </head>
 <body data-page="common-mistakes">
   <a class="skip-link" href="#main-content">Skip to content</a><div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -25,7 +25,7 @@
         <div class="doc-note"><p><strong>Software changes between releases.</strong> Treat these as practical checks, not strict requirements for every FreeMoCap version or capture setup.</p></div>
         <h2 id="ffmpeg-not-in-path">FFmpeg is not in PATH</h2>
         <p>Installing FFmpeg does not automatically make the <code>ffmpeg</code> command available. Add the directory that contains <code>ffmpeg.exe</code> (commonly <code>C:\ffmpeg\bin</code>) to your user PATH, then close and reopen Command Prompt. Verify with <code>where ffmpeg</code>.</p>
-        <figure class="doc-figure"><img class="doc-screenshot" src="../assets/images/ffmpeg-path.png" alt="Illustrative placeholder for checking FFmpeg in Windows PATH"><figcaption><strong>Illustration placeholder</strong><span>Check the actual folder containing ffmpeg.exe, then verify from a new terminal.</span></figcaption></figure>
+        <figure class="doc-figure"><img class="doc-screenshot ffmpeg-screenshot" src="../assets/images/ffmpeg-path.png?v=2" alt="Windows Environment Variables editor showing C:\ffmpeg\bin in the user PATH; personal paths are redacted"><figcaption><strong>Windows user PATH example</strong><span>Add the extracted bin folder, then verify with <code>where ffmpeg</code> in a new terminal.</span></figcaption></figure>
         <p>Follow the <a href="ffmpeg-setup.html#path">FFmpeg PATH setup guide</a> if the command is still missing.</p>
 
         <h2 id="direct-3gp-import">Importing .3GP directly without checking support</h2>

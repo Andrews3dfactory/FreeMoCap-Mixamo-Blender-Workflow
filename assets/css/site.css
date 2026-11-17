@@ -210,6 +210,7 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
 .screenshot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .screenshot-grid a { display: block; overflow: hidden; border: 1px solid var(--border); border-radius: 9px; background: rgba(255,255,255,.025); color: #b8c5d3; font-size: 10px; transition: transform .2s, border-color .2s; }
 .screenshot-grid img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1.78; object-fit: cover; border-bottom: 1px solid var(--border); }
+.screenshot-grid img.ffmpeg-screenshot { aspect-ratio: auto; object-fit: contain; background: #101318; }
 .screenshot-grid .calibration-board-image { aspect-ratio: auto; object-fit: contain; background: #fff; }
 .screenshot-grid figure { margin: 0; }
 .screenshot-grid figcaption { display: grid; gap: 4px; padding: 9px 11px 11px; }
@@ -218,6 +219,7 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
 .screenshot-grid a:hover, .screenshot-grid a:focus-visible { transform: translateY(-3px); border-color: rgba(95,174,236,.36); color: white; }
 .section-visual-note { display: flex; align-items: center; gap: 13px; margin: 15px 0 0; padding: 9px; border: 1px solid var(--border); border-radius: 10px; background: rgba(255,255,255,.022); }
 .section-visual-note img { display: block; width: 104px; height: 64px; flex: none; margin: 0; border: 1px solid var(--border); border-radius: 6px; object-fit: cover; }
+.section-visual-note img.ffmpeg-screenshot { object-fit: contain; background: #fff; }
 .section-visual-note figcaption { display: grid; gap: 3px; color: var(--muted); font-size: 9px; line-height: 1.5; }
 .section-visual-note figcaption strong { color: #b6d6f1; font-size: 10px; }
 .placeholder-note { margin: 11px 0 0; color: #8492a3; font-size: 10px; }
@@ -275,6 +277,7 @@ h1 { margin: 22px 0 18px; font-size: clamp(38px, 4.3vw, 61px); font-weight: 680;
 .doc-screenshot { width: 100%; }
 .doc-figure { margin: 20px 0 25px; padding: 10px; border: 1px solid var(--border); border-radius: 11px; background: rgba(255,255,255,.025); }
 .doc-figure .doc-screenshot { width: 100%; height: auto; margin: 0; aspect-ratio: 1.78; object-fit: cover; }
+.doc-figure .doc-screenshot.ffmpeg-screenshot { aspect-ratio: auto; object-fit: contain; background: #101318; }
 .doc-figure .calibration-board-image { aspect-ratio: auto; object-fit: contain; background: #fff; }
 .doc-figure figcaption { display: grid; gap: 4px; padding: 10px 3px 2px; color: var(--muted); font-size: 10px; line-height: 1.55; }
 .doc-figure figcaption strong { color: #b6d6f1; font-size: 10px; }
